@@ -9,22 +9,12 @@
 /* Begin PBXBuildFile section */
 		2D2D5A501B10EEEE00C46B53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A4F1B10EEEE00C46B53 /* main.m */; };
 		2D2D5A531B10EEEE00C46B53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A521B10EEEE00C46B53 /* AppDelegate.m */; };
-		2D2D5A561B10EEEE00C46B53 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A551B10EEEE00C46B53 /* ViewController.m */; };
-		2D2D5A591B10EEEE00C46B53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D2D5A571B10EEEE00C46B53 /* Main.storyboard */; };
+		2D2D5A561B10EEEE00C46B53 /* TSGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A551B10EEEE00C46B53 /* TSGHomeViewController.m */; };
 		2D2D5A5B1B10EEEE00C46B53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D2D5A5A1B10EEEE00C46B53 /* Images.xcassets */; };
 		2D2D5A5E1B10EEEE00C46B53 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D2D5A5C1B10EEEE00C46B53 /* LaunchScreen.xib */; };
-		2D2D5A6A1B10EEEE00C46B53 /* SpectrumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A691B10EEEE00C46B53 /* SpectrumTests.m */; };
+		2D2D5A771B10F02700C46B53 /* Objective-C.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2D2D5A751B10F02700C46B53 /* Objective-C.gitignore */; };
+		2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A7A1B10F20E00C46B53 /* TSGHomeView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2D2D5A641B10EEEE00C46B53 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D2D5A421B10EEEE00C46B53 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D2D5A491B10EEEE00C46B53;
-			remoteInfo = Spectrum;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2D2D5A4A1B10EEEE00C46B53 /* Spectrum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spectrum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,25 +22,18 @@
 		2D2D5A4F1B10EEEE00C46B53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D2D5A511B10EEEE00C46B53 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D2D5A521B10EEEE00C46B53 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2D2D5A541B10EEEE00C46B53 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2D2D5A551B10EEEE00C46B53 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2D2D5A581B10EEEE00C46B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D2D5A541B10EEEE00C46B53 /* TSGHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSGHomeViewController.h; sourceTree = "<group>"; };
+		2D2D5A551B10EEEE00C46B53 /* TSGHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSGHomeViewController.m; sourceTree = "<group>"; };
 		2D2D5A5A1B10EEEE00C46B53 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2D2D5A5D1B10EEEE00C46B53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		2D2D5A631B10EEEE00C46B53 /* SpectrumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectrumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D2D5A681B10EEEE00C46B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D2D5A691B10EEEE00C46B53 /* SpectrumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectrumTests.m; sourceTree = "<group>"; };
+		2D2D5A751B10F02700C46B53 /* Objective-C.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Objective-C.gitignore"; sourceTree = "<group>"; };
+		2D2D5A761B10F02700C46B53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2D2D5A791B10F20E00C46B53 /* TSGHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGHomeView.h; sourceTree = "<group>"; };
+		2D2D5A7A1B10F20E00C46B53 /* TSGHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGHomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2D2D5A471B10EEEE00C46B53 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D2D5A601B10EEEE00C46B53 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,8 +46,9 @@
 		2D2D5A411B10EEEE00C46B53 = {
 			isa = PBXGroup;
 			children = (
+				2D2D5A751B10F02700C46B53 /* Objective-C.gitignore */,
+				2D2D5A761B10F02700C46B53 /* README.md */,
 				2D2D5A4C1B10EEEE00C46B53 /* Spectrum */,
-				2D2D5A661B10EEEE00C46B53 /* SpectrumTests */,
 				2D2D5A4B1B10EEEE00C46B53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				2D2D5A4A1B10EEEE00C46B53 /* Spectrum.app */,
-				2D2D5A631B10EEEE00C46B53 /* SpectrumTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,11 +64,10 @@
 		2D2D5A4C1B10EEEE00C46B53 /* Spectrum */ = {
 			isa = PBXGroup;
 			children = (
+				2D2D5A741B10EFA500C46B53 /* Views */,
+				2D2D5A731B10EF9F00C46B53 /* Controllers */,
 				2D2D5A511B10EEEE00C46B53 /* AppDelegate.h */,
 				2D2D5A521B10EEEE00C46B53 /* AppDelegate.m */,
-				2D2D5A541B10EEEE00C46B53 /* ViewController.h */,
-				2D2D5A551B10EEEE00C46B53 /* ViewController.m */,
-				2D2D5A571B10EEEE00C46B53 /* Main.storyboard */,
 				2D2D5A5A1B10EEEE00C46B53 /* Images.xcassets */,
 				2D2D5A5C1B10EEEE00C46B53 /* LaunchScreen.xib */,
 				2D2D5A4D1B10EEEE00C46B53 /* Supporting Files */,
@@ -102,21 +84,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2D2D5A661B10EEEE00C46B53 /* SpectrumTests */ = {
+		2D2D5A731B10EF9F00C46B53 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2D2D5A691B10EEEE00C46B53 /* SpectrumTests.m */,
-				2D2D5A671B10EEEE00C46B53 /* Supporting Files */,
+				2D2D5A541B10EEEE00C46B53 /* TSGHomeViewController.h */,
+				2D2D5A551B10EEEE00C46B53 /* TSGHomeViewController.m */,
 			);
-			path = SpectrumTests;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		2D2D5A671B10EEEE00C46B53 /* Supporting Files */ = {
+		2D2D5A741B10EFA500C46B53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2D2D5A681B10EEEE00C46B53 /* Info.plist */,
+				2D2D5A791B10F20E00C46B53 /* TSGHomeView.h */,
+				2D2D5A7A1B10F20E00C46B53 /* TSGHomeView.m */,
 			);
-			name = "Supporting Files";
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,24 +122,6 @@
 			productReference = 2D2D5A4A1B10EEEE00C46B53 /* Spectrum.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D2D5A621B10EEEE00C46B53 /* SpectrumTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D2D5A701B10EEEE00C46B53 /* Build configuration list for PBXNativeTarget "SpectrumTests" */;
-			buildPhases = (
-				2D2D5A5F1B10EEEE00C46B53 /* Sources */,
-				2D2D5A601B10EEEE00C46B53 /* Frameworks */,
-				2D2D5A611B10EEEE00C46B53 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D2D5A651B10EEEE00C46B53 /* PBXTargetDependency */,
-			);
-			name = SpectrumTests;
-			productName = SpectrumTests;
-			productReference = 2D2D5A631B10EEEE00C46B53 /* SpectrumTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,10 +133,6 @@
 				TargetAttributes = {
 					2D2D5A491B10EEEE00C46B53 = {
 						CreatedOnToolsVersion = 6.3.2;
-					};
-					2D2D5A621B10EEEE00C46B53 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 2D2D5A491B10EEEE00C46B53;
 					};
 				};
 			};
@@ -189,7 +150,6 @@
 			projectRoot = "";
 			targets = (
 				2D2D5A491B10EEEE00C46B53 /* Spectrum */,
-				2D2D5A621B10EEEE00C46B53 /* SpectrumTests */,
 			);
 		};
 /* End PBXProject section */
@@ -199,16 +159,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D2D5A591B10EEEE00C46B53 /* Main.storyboard in Resources */,
 				2D2D5A5E1B10EEEE00C46B53 /* LaunchScreen.xib in Resources */,
+				2D2D5A771B10F02700C46B53 /* Objective-C.gitignore in Resources */,
 				2D2D5A5B1B10EEEE00C46B53 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D2D5A611B10EEEE00C46B53 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,39 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D2D5A561B10EEEE00C46B53 /* ViewController.m in Sources */,
+				2D2D5A561B10EEEE00C46B53 /* TSGHomeViewController.m in Sources */,
 				2D2D5A531B10EEEE00C46B53 /* AppDelegate.m in Sources */,
 				2D2D5A501B10EEEE00C46B53 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D2D5A5F1B10EEEE00C46B53 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D2D5A6A1B10EEEE00C46B53 /* SpectrumTests.m in Sources */,
+				2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2D2D5A651B10EEEE00C46B53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D2D5A491B10EEEE00C46B53 /* Spectrum */;
-			targetProxy = 2D2D5A641B10EEEE00C46B53 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		2D2D5A571B10EEEE00C46B53 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2D2D5A581B10EEEE00C46B53 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2D2D5A5C1B10EEEE00C46B53 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -363,40 +293,6 @@
 			};
 			name = Release;
 		};
-		2D2D5A711B10EEEE00C46B53 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpectrumTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spectrum.app/Spectrum";
-			};
-			name = Debug;
-		};
-		2D2D5A721B10EEEE00C46B53 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpectrumTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spectrum.app/Spectrum";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -414,14 +310,6 @@
 			buildConfigurations = (
 				2D2D5A6E1B10EEEE00C46B53 /* Debug */,
 				2D2D5A6F1B10EEEE00C46B53 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		2D2D5A701B10EEEE00C46B53 /* Build configuration list for PBXNativeTarget "SpectrumTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D2D5A711B10EEEE00C46B53 /* Debug */,
-				2D2D5A721B10EEEE00C46B53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

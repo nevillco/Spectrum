@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TSGHomeView.h
 //  Spectrum
 //
 //  Created by Connor Neville on 5/23/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TSGHomeView : UIView
 
 @end
-
