@@ -14,6 +14,7 @@
 
 + (NSString*) fontName;
 + (NSString*) boldFontName;
++ (int) maxAttemptsPerColor;
 
 @end
 

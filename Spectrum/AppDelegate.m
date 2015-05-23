@@ -48,5 +48,6 @@
 
 + (NSString*) fontName { return @"TrebuchetMS"; }
 + (NSString*) boldFontName { return [NSString stringWithFormat:@"%@-Bold", [self fontName]]; }
++ (int) maxAttemptsPerColor { return 3; }
 
 @end

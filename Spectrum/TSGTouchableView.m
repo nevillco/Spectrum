@@ -7,6 +7,7 @@
 //
 
 #import "TSGTouchableView.h"
+#import "AppDelegate.h"
 
 @interface TSGTouchableView ()
 
@@ -15,8 +16,6 @@
 @end
 
 @implementation TSGTouchableView
-
-#define kMaxAttempts 3
 
 - (id) init {
     self = [super init];
@@ -32,7 +31,7 @@
 //Track when touch began
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(self.attempts == kMaxAttempts || touches.count != 1)
+    if(self.attempts == [AppDelegate maxAttemptsPerColor] || touches.count != 1)
         return;
     self.startTime = [NSDate date];
     UITouch *touch = [touches anyObject];
@@ -62,7 +61,7 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(self.attempts == kMaxAttempts)
+    if(self.attempts == [AppDelegate maxAttemptsPerColor])
         return;
     
     UITouch *touch = [touches anyObject];
@@ -74,7 +73,7 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 {
-    if(self.attempts == kMaxAttempts)
+    if(self.attempts == [AppDelegate maxAttemptsPerColor])
         return;
     
     // Get the specific point that was touched
@@ -94,7 +93,7 @@
         self.attempts += 1;
         
         //Occurs only once when last try was just filled
-        if(self.attempts == kMaxAttempts)
+        if(self.attempts == [AppDelegate maxAttemptsPerColor])
         {
             
         }
