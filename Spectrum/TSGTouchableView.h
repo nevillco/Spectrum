@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CNLabel.h"
 
 @interface TSGTouchableView : UIView
 
 @property int attempts;
+@property UIColor* createdColor;
+@property CNLabel* notifyLabel;
 
 @end
