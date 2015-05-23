@@ -32,7 +32,7 @@
     
     //self.initialInstructionLabel
     self.initialInstructionLabel = [[CNLabel alloc] initWithText:@"The goal of the Spectrum Game is simple: try to match the goal color below by tapping and holding somewhere in the box. For more instructions, click the button in the bottom left."];
-    self.initialInstructionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:13.0f];
+    self.initialInstructionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:12.0f];
     self.initialInstructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.initialInstructionLabel];
     
@@ -40,6 +40,24 @@
     self.touchView = [[TSGTouchableView alloc] init];
     self.touchView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.touchView];
+    
+    //self.redProgress
+    self.redProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    self.redProgress.progressTintColor = [UIColor redColor];
+    self.redProgress.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.redProgress];
+    
+    //self.blueProgress
+    self.blueProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    self.blueProgress.progressTintColor = [UIColor blueColor];
+    self.blueProgress.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.blueProgress];
+    
+    //self.greenProgress
+    self.greenProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    self.greenProgress.progressTintColor = [UIColor greenColor];
+    self.greenProgress.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.greenProgress];
     
     //self.guessView
     self.guessView = [[UIView alloc] init];
@@ -161,6 +179,101 @@
                                                          attribute:NSLayoutAttributeBottom
                                                         multiplier:1.0f
                                                           constant:0.0f],
+                           //self.touchView
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeadingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.initialInstructionLabel
+                                                        attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0f
+                                                         constant:8.0f],
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.redProgress
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:-10.0f],
+                           //self.redProgress
+                           [NSLayoutConstraint constraintWithItem:self.redProgress
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeadingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.redProgress
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.redProgress
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.blueProgress
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:-10.0f],
+                           //self.blueProgress
+                           [NSLayoutConstraint constraintWithItem:self.blueProgress
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeadingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.blueProgress
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.blueProgress
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.greenProgress
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:-10.0f],
+                           //self.greenProgress
+                           [NSLayoutConstraint constraintWithItem:self.greenProgress
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeadingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.greenProgress
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.greenProgress
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.guessView
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:-10.0f],
                            //self.guessView
                            [NSLayoutConstraint constraintWithItem:self.guessView
                                                         attribute:NSLayoutAttributeLeading
@@ -197,7 +310,7 @@
                                                            toItem:nil
                                                         attribute:NSLayoutAttributeNotAnAttribute
                                                        multiplier:1.0f
-                                                         constant:50.0f],
+                                                         constant:35.0f],
                            [NSLayoutConstraint constraintWithItem:self.guessColorSquare
                                                         attribute:NSLayoutAttributeTop
                                                         relatedBy:NSLayoutRelationEqual
@@ -263,7 +376,7 @@
                                                            toItem:nil
                                                         attribute:NSLayoutAttributeNotAnAttribute
                                                        multiplier:1.0f
-                                                         constant:50.0f],
+                                                         constant:35.0f],
                            [NSLayoutConstraint constraintWithItem:self.goalColorSquare
                                                         attribute:NSLayoutAttributeTop
                                                         relatedBy:NSLayoutRelationEqual
@@ -352,37 +465,7 @@
                                                            toItem:self
                                                         attribute:NSLayoutAttributeBottomMargin
                                                        multiplier:1.0f
-                                                         constant:0.0f],
-                           //self.touchView
-                           [NSLayoutConstraint constraintWithItem:self.touchView
-                                                        attribute:NSLayoutAttributeLeading
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeLeadingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.touchView
-                                                        attribute:NSLayoutAttributeTrailing
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeTrailingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.touchView
-                                                        attribute:NSLayoutAttributeTop
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.initialInstructionLabel
-                                                        attribute:NSLayoutAttributeBottom
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           //Will want to change this one later
-                           [NSLayoutConstraint constraintWithItem:self.touchView
-                                                        attribute:NSLayoutAttributeHeight
-                                                        relatedBy:NSLayoutRelationGreaterThanOrEqual
-                                                           toItem:nil
-                                                        attribute:NSLayoutAttributeNotAnAttribute
-                                                       multiplier:1.0f
-                                                         constant:100.0f]
+                                                         constant:0.0f]
          ]];
 }
 

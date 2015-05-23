@@ -22,8 +22,10 @@
 //Touchable view, usedby player to make a color
 @property TSGTouchableView* touchView;
 
-//Button to submit attempt
-@property UIButton* submitButton;
+//Progress bars to indicate expected guess color
+@property UIProgressView* redProgress;
+@property UIProgressView* blueProgress;
+@property UIProgressView* greenProgress;
 
 //View for goal color
 @property UIView* goalView;
@@ -38,6 +40,9 @@
 @property TSGColorView* guessColorSquare;
 //Label for guess color (subview of guessView!)
 @property CNLabel* guessLabel;
+
+//Button to submit attempt
+@property UIButton* submitButton;
 
 
 //Three small buttons to display along button
