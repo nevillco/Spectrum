@@ -62,6 +62,44 @@
     self.touchView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.touchView];
     
+    //self.guessView
+    self.guessView = [[UIView alloc] init];
+    self.guessView.backgroundColor = [UIColor whiteColor];
+    self.guessView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.guessView.layer.borderWidth = 1.0f;
+    self.guessView.layer.borderColor = [UIColor blackColor].CGColor;
+    [self addSubview: self.guessView];
+    
+    //self.guessColorSquare
+    self.guessColorSquare = [[TSGColorView alloc] initWithColor: [UIColor redColor]];
+    self.guessColorSquare.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.guessView addSubview: self.guessColorSquare];
+    
+    //self.guessLabel
+    self.guessLabel = [[CNLabel alloc] initWithText:@"Guess color"];
+    self.guessLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
+    self.guessLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.guessView addSubview: self.guessLabel];
+    
+    //self.goalView
+    self.goalView = [[UIView alloc] init];
+    self.goalView.backgroundColor = [UIColor whiteColor];
+    self.goalView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.goalView.layer.borderWidth = 1.0f;
+    self.goalView.layer.borderColor = [UIColor blackColor].CGColor;
+    [self addSubview: self.goalView];
+    
+    //self.goalColorSquare
+    self.goalColorSquare = [[TSGColorView alloc] initWithColor: [UIColor redColor]];
+    self.goalColorSquare.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.goalView addSubview: self.goalColorSquare];
+    
+    //self.goalLabel
+    self.goalLabel = [[CNLabel alloc] initWithText:@"Goal color"];
+    self.goalLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
+    self.goalLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.goalView addSubview: self.goalLabel];
+    
     //self.submitButton
     self.submitButton = [[UIButton alloc] init];
     [self.submitButton setTitle:@"Submit Attempt" forState:UIControlStateNormal];
@@ -208,6 +246,138 @@
                                                         relatedBy:NSLayoutRelationEqual
                                                            toItem:self.blueInstructionLabel
                                                         attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.guessView
+                           [NSLayoutConstraint constraintWithItem:self.guessView
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeading
+                                                       multiplier:1.0f
+                                                         constant:-5.0f],
+                           [NSLayoutConstraint constraintWithItem:self.guessView
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailing
+                                                       multiplier:1.0f
+                                                         constant:5.0f],
+                           [NSLayoutConstraint constraintWithItem:self.guessView
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.goalView
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:-10.0f],
+                           //self.guessColorSquare
+                           [NSLayoutConstraint constraintWithItem:self.guessColorSquare
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.guessView
+                                                        attribute:NSLayoutAttributeTrailingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.guessColorSquare
+                                                        attribute:NSLayoutAttributeWidth
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.0f
+                                                         constant:50.0f],
+                           [NSLayoutConstraint constraintWithItem:self.guessColorSquare
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.guessView
+                                                        attribute:NSLayoutAttributeTopMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.guessColorSquare
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.guessView
+                                                        attribute:NSLayoutAttributeBottomMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.guessLabel
+                           [NSLayoutConstraint constraintWithItem:self.guessLabel
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.guessColorSquare
+                                                        attribute:NSLayoutAttributeLeading
+                                                       multiplier:1.0f
+                                                         constant:-8.0f],
+                           [NSLayoutConstraint constraintWithItem:self.guessLabel
+                                                        attribute:NSLayoutAttributeCenterY
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.guessColorSquare
+                                                        attribute:NSLayoutAttributeCenterY
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.goalView
+                           [NSLayoutConstraint constraintWithItem:self.goalView
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeading
+                                                       multiplier:1.0f
+                                                         constant:-5.0f],
+                           [NSLayoutConstraint constraintWithItem:self.goalView
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailing
+                                                       multiplier:1.0f
+                                                         constant:5.0f],
+                           [NSLayoutConstraint constraintWithItem:self.goalView
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.submitButton
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.goalColorSquare
+                           [NSLayoutConstraint constraintWithItem:self.goalColorSquare
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.goalView
+                                                        attribute:NSLayoutAttributeLeadingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.goalColorSquare
+                                                        attribute:NSLayoutAttributeWidth
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.0f
+                                                         constant:50.0f],
+                           [NSLayoutConstraint constraintWithItem:self.goalColorSquare
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.goalView
+                                                        attribute:NSLayoutAttributeTopMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.goalColorSquare
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.goalView
+                                                        attribute:NSLayoutAttributeBottomMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.goalLabel
+                           [NSLayoutConstraint constraintWithItem:self.goalLabel
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.goalColorSquare
+                                                        attribute:NSLayoutAttributeTrailing
+                                                       multiplier:1.0f
+                                                         constant:8.0f],
+                           [NSLayoutConstraint constraintWithItem:self.goalLabel
+                                                        attribute:NSLayoutAttributeCenterY
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.goalColorSquare
+                                                        attribute:NSLayoutAttributeCenterY
                                                        multiplier:1.0f
                                                          constant:0.0f],
                            //self.submitButton
