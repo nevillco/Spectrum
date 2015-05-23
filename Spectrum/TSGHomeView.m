@@ -23,7 +23,6 @@
 
 //Construct, format and add each property of TSGHomeView
 - (void) makeControls {
-    
     //self.titleLabel
     self.titleLabel = [[CNLabel alloc] initWithText:@"Spectrum"];
     self.titleLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:28.0f];
@@ -57,10 +56,15 @@
     self.greenInstructionLabel.textColor = [UIColor greenColor];
     self.greenInstructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.greenInstructionLabel];
+    
+    //self.touchView
+    self.touchView = [[TSGTouchableView alloc] init];
+    self.touchView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.touchView];
 }
 
 - (void) makeControlConstraints {
-    [self addConstraints:@[//Title label
+    [self addConstraints:@[//self.titleLabel
                            [NSLayoutConstraint constraintWithItem:self.titleLabel
                                                         attribute:NSLayoutAttributeLeading
                                                         relatedBy:NSLayoutRelationEqual
@@ -82,7 +86,7 @@
                                                         attribute:NSLayoutAttributeTopMargin
                                                        multiplier:1.0f
                                                          constant:20.0f],
-                           //Initial instruction label
+                           //self.initialInstructionLabel
                            [NSLayoutConstraint constraintWithItem:self.initialInstructionLabel
                                                          attribute:NSLayoutAttributeLeading
                                                          relatedBy:NSLayoutRelationEqual
@@ -104,7 +108,7 @@
                                                          attribute:NSLayoutAttributeBottom
                                                         multiplier:1.0f
                                                           constant:0.0f],
-                           //Red instruction label
+                           //self.redInstructionLabel
                            [NSLayoutConstraint constraintWithItem:self.redInstructionLabel
                                                         attribute:NSLayoutAttributeLeading
                                                         relatedBy:NSLayoutRelationEqual
@@ -126,7 +130,7 @@
                                                         attribute:NSLayoutAttributeBottom
                                                        multiplier:1.0f
                                                          constant:0.0f],
-                           //Blue instruction label
+                           //self.blueInstructionLabel
                            [NSLayoutConstraint constraintWithItem:self.blueInstructionLabel
                                                         attribute:NSLayoutAttributeLeading
                                                         relatedBy:NSLayoutRelationEqual
@@ -148,7 +152,7 @@
                                                         attribute:NSLayoutAttributeBottom
                                                        multiplier:1.0f
                                                          constant:0.0f],
-                           //Green instruction label
+                           //self.greenInstructionLabel
                            [NSLayoutConstraint constraintWithItem:self.greenInstructionLabel
                                                         attribute:NSLayoutAttributeLeading
                                                         relatedBy:NSLayoutRelationEqual
@@ -170,6 +174,36 @@
                                                         attribute:NSLayoutAttributeBottom
                                                        multiplier:1.0f
                                                          constant:0.0f],
+                           //self.touchView
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeadingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.greenInstructionLabel
+                                                        attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //Will want to change this one later
+                           [NSLayoutConstraint constraintWithItem:self.touchView
+                                                        attribute:NSLayoutAttributeHeight
+                                                        relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                           toItem:nil
+                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                       multiplier:1.0f
+                                                         constant:100.0f]
          ]];
 }
 

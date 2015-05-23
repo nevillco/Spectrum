@@ -12,5 +12,6 @@ Down-the-line changes (nice things to work on, but not immediate goals):
 
 * Try converting `constraintWithItem`s to `constraintWithVisualFormat`
 * Use CoreGraphics to draw additional randomly-generated "color blots" on the view
+* Option to hide instructions for more screen space
 
 along with any other features I think of along the way. For any inquiries/suggestions/comments about the project, feel free to email me at nevillco@bc.edu.

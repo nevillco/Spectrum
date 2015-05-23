@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CNLabel.h"
+#import "TSGTouchableView.h"
 
 @interface TSGHomeView : UIView
 
@@ -21,5 +22,19 @@
 @property CNLabel* redInstructionLabel;
 @property CNLabel* blueInstructionLabel;
 @property CNLabel* greenInstructionLabel;
+
+//Touchable view, usedby player to make a color
+@property TSGTouchableView* touchView;
+
+
+//Three small buttons to display along button
+
+//Show/hide instructions. Since this action only affects UI,
+//HomeView should implement the action
+@property UIButton* instructionButton;
+//Button to segue to My Stats
+@property UIButton* myStatsButton;
+//Button to segue to global Leaderboard
+@property UIButton* leaderboardButton;
 
 @end
