@@ -10,7 +10,7 @@ The Spectrum Game is a simple iOS game that tests the user's ability to guess a 
 
 Down-the-line changes (nice things to work on, but not immediate goals):
 
-* Try converting `constraintWithItem`s to `constraintWithVisualFormat`
+* Try converting `constraintWithItem` to `constraintWithVisualFormat`
 * Use CoreGraphics to draw additional randomly-generated "color blots" on the view
 * Option to hide instructions for more screen space
 

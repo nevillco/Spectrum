@@ -16,6 +16,7 @@
 		2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A7A1B10F20E00C46B53 /* TSGHomeView.m */; };
 		2D2D5A7E1B10F8A200C46B53 /* CNLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A7D1B10F8A200C46B53 /* CNLabel.m */; };
 		2D2D5A811B1104C300C46B53 /* TSGTouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A801B1104C300C46B53 /* TSGTouchableView.m */; };
+		2D2D5A841B11150500C46B53 /* TSGColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A831B11150500C46B53 /* TSGColorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		2D2D5A7D1B10F8A200C46B53 /* CNLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNLabel.m; sourceTree = "<group>"; };
 		2D2D5A7F1B1104C300C46B53 /* TSGTouchableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGTouchableView.h; sourceTree = "<group>"; };
 		2D2D5A801B1104C300C46B53 /* TSGTouchableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGTouchableView.m; sourceTree = "<group>"; };
+		2D2D5A821B11150500C46B53 /* TSGColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGColorView.h; sourceTree = "<group>"; };
+		2D2D5A831B11150500C46B53 /* TSGColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGColorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				2D2D5A7A1B10F20E00C46B53 /* TSGHomeView.m */,
 				2D2D5A7F1B1104C300C46B53 /* TSGTouchableView.h */,
 				2D2D5A801B1104C300C46B53 /* TSGTouchableView.m */,
+				2D2D5A821B11150500C46B53 /* TSGColorView.h */,
+				2D2D5A831B11150500C46B53 /* TSGColorView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				2D2D5A531B10EEEE00C46B53 /* AppDelegate.m in Sources */,
 				2D2D5A501B10EEEE00C46B53 /* main.m in Sources */,
 				2D2D5A811B1104C300C46B53 /* TSGTouchableView.m in Sources */,
+				2D2D5A841B11150500C46B53 /* TSGColorView.m in Sources */,
 				2D2D5A7E1B10F8A200C46B53 /* CNLabel.m in Sources */,
 				2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */,
 			);
