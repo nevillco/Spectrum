@@ -81,9 +81,8 @@
         return;
     
     UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView: self];
+    CGPoint point = [TSGTouchableView boundPointForTouch:[touch locationInView: self] withBounds:self.bounds];
     
-    point = boundPoint(point, [self bounds]);
     [self makeGridlinesWithX:point.x withY:point.y];
 }
 
@@ -140,17 +139,19 @@
     [self setNeedsDisplay];
 }
 
-static float bound(float pt, float min, float max)
++ (float) boundFloat: (float) val withMin: (float) min withMax: (float) max
 {
-    if(pt < min) return min;
-    if(pt > max) return max;
-    return pt;
+    if(val < min) return min;
+    if(val > max) return max;
+    return val;
 }
 
-static CGPoint boundPoint(CGPoint touch, CGRect bounds)
++ (CGPoint) boundPointForTouch: (CGPoint) touch withBounds: (CGRect) bounds
 {
-    touch.x = bound(touch.x, bounds.origin.x, bounds.origin.x + bounds.size.width);
-    touch.y = bound(touch.y, bounds.origin.y, bounds.origin.y + bounds.size.height);
+    touch.x = [TSGTouchableView boundFloat:touch.x withMin:bounds.origin.x
+                                   withMax:bounds.origin.x + bounds.size.width];
+    touch.y = [TSGTouchableView boundFloat:touch.y withMin:bounds.origin.y
+                                   withMax:bounds.origin.y + bounds.size.height];
     return touch;
 }
 
