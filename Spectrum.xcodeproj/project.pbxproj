@@ -14,6 +14,7 @@
 		2D2D5A5E1B10EEEE00C46B53 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D2D5A5C1B10EEEE00C46B53 /* LaunchScreen.xib */; };
 		2D2D5A771B10F02700C46B53 /* Objective-C.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2D2D5A751B10F02700C46B53 /* Objective-C.gitignore */; };
 		2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A7A1B10F20E00C46B53 /* TSGHomeView.m */; };
+		2D2D5A7E1B10F8A200C46B53 /* CNLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A7D1B10F8A200C46B53 /* CNLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		2D2D5A761B10F02700C46B53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2D2D5A791B10F20E00C46B53 /* TSGHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGHomeView.h; sourceTree = "<group>"; };
 		2D2D5A7A1B10F20E00C46B53 /* TSGHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGHomeView.m; sourceTree = "<group>"; };
+		2D2D5A7C1B10F8A200C46B53 /* CNLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNLabel.h; sourceTree = "<group>"; };
+		2D2D5A7D1B10F8A200C46B53 /* CNLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,8 @@
 		2D2D5A4C1B10EEEE00C46B53 /* Spectrum */ = {
 			isa = PBXGroup;
 			children = (
+				2D2D5A7C1B10F8A200C46B53 /* CNLabel.h */,
+				2D2D5A7D1B10F8A200C46B53 /* CNLabel.m */,
 				2D2D5A741B10EFA500C46B53 /* Views */,
 				2D2D5A731B10EF9F00C46B53 /* Controllers */,
 				2D2D5A511B10EEEE00C46B53 /* AppDelegate.h */,
@@ -175,6 +180,7 @@
 				2D2D5A561B10EEEE00C46B53 /* TSGHomeViewController.m in Sources */,
 				2D2D5A531B10EEEE00C46B53 /* AppDelegate.m in Sources */,
 				2D2D5A501B10EEEE00C46B53 /* main.m in Sources */,
+				2D2D5A7E1B10F8A200C46B53 /* CNLabel.m in Sources */,
 				2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

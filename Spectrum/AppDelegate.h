@@ -12,5 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (NSString*) fontName;
++ (NSString*) boldFontName;
+
 @end
 
