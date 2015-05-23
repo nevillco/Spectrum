@@ -61,6 +61,42 @@
     self.touchView = [[TSGTouchableView alloc] init];
     self.touchView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.touchView];
+    
+    //self.submitButton
+    self.submitButton = [[UIButton alloc] init];
+    [self.submitButton setTitle:@"Submit Attempt" forState:UIControlStateNormal];
+    [self.submitButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:24.0f]];
+    [self.submitButton setTitleColor: [UIColor blueColor] forState:UIControlStateNormal];
+    [self.submitButton setTitleColor: [UIColor whiteColor] forState:UIControlStateHighlighted];
+    self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.submitButton];
+    
+    //self.instructionButton
+    self.instructionButton = [[UIButton alloc] init];
+    [self.instructionButton setTitle:@"Hide Instructions" forState:UIControlStateNormal];
+    [self.instructionButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:11.0f]];
+    [self.instructionButton setTitleColor: [UIColor blueColor] forState:UIControlStateNormal];
+    [self.instructionButton setTitleColor: [UIColor whiteColor] forState:UIControlStateHighlighted];
+    self.instructionButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.instructionButton];
+    
+    //self.myStatsButton
+    self.myStatsButton = [[UIButton alloc] init];
+    [self.myStatsButton setTitle:@"My Stats" forState:UIControlStateNormal];
+    [self.myStatsButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:11.0f]];
+    [self.myStatsButton setTitleColor: [UIColor blueColor] forState:UIControlStateNormal];
+    [self.myStatsButton setTitleColor: [UIColor whiteColor] forState:UIControlStateHighlighted];
+    self.myStatsButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.myStatsButton];
+    
+    //self.leaderboardButton
+    self.leaderboardButton = [[UIButton alloc] init];
+    [self.leaderboardButton setTitle:@"Leaderboard" forState:UIControlStateNormal];
+    [self.leaderboardButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:11.0f]];
+    [self.leaderboardButton setTitleColor: [UIColor blueColor] forState:UIControlStateNormal];
+    [self.leaderboardButton setTitleColor: [UIColor whiteColor] forState:UIControlStateHighlighted];
+    self.leaderboardButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.leaderboardButton];
 }
 
 - (void) makeControlConstraints {
@@ -172,6 +208,66 @@
                                                         relatedBy:NSLayoutRelationEqual
                                                            toItem:self.blueInstructionLabel
                                                         attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.submitButton
+                           [NSLayoutConstraint constraintWithItem:self.submitButton
+                                                        attribute:NSLayoutAttributeCenterX
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeCenterX
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.submitButton
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.myStatsButton
+                                                        attribute:NSLayoutAttributeTop
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.instructionButton
+                           [NSLayoutConstraint constraintWithItem:self.instructionButton
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeLeadingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.instructionButton
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeBottomMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.myStatsButton
+                           [NSLayoutConstraint constraintWithItem:self.myStatsButton
+                                                        attribute:NSLayoutAttributeCenterX
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeCenterX
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.myStatsButton
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeBottomMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           //self.leaderboardButton
+                           [NSLayoutConstraint constraintWithItem:self.leaderboardButton
+                                                        attribute:NSLayoutAttributeTrailing
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeTrailingMargin
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.leaderboardButton
+                                                        attribute:NSLayoutAttributeBottom
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeBottomMargin
                                                        multiplier:1.0f
                                                          constant:0.0f],
                            //self.touchView
