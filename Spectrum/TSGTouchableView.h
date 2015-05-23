@@ -10,4 +10,6 @@
 
 @interface TSGTouchableView : UIView
 
+@property int attempts;
+
 @end

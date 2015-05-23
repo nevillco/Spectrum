@@ -55,4 +55,7 @@
 //Button to segue to global Leaderboard
 @property UIButton* leaderboardButton;
 
+- (void) setGuessColor: (UIColor*) guessColor;
+- (void) setGoalColor: (UIColor*) goalColor;
+
 @end

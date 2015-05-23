@@ -21,6 +21,16 @@
     return self;
 }
 
+- (void) setGuessColor:(UIColor *)guessColor {
+    [self.guessColorSquare setBackgroundColor: guessColor];
+    [self.guessView setBackgroundColor:[guessColor colorWithAlphaComponent: 0.5f]];
+}
+
+- (void) setGoalColor:(UIColor *)goalColor {
+    [self.goalColorSquare setBackgroundColor:goalColor];
+    [self.goalView setBackgroundColor: [goalColor colorWithAlphaComponent: 0.5f]];
+}
+
 //Construct, format and add each property of TSGHomeView
 - (void) makeControls {
     //self.titleLabel
@@ -134,6 +144,7 @@
     [self addSubview: self.leaderboardButton];
 }
 
+//Make constraints for each property
 - (void) makeControlConstraints {
     [self addConstraints:@[//self.titleLabel
                            [NSLayoutConstraint constraintWithItem:self.titleLabel
