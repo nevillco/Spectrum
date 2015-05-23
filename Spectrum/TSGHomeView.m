@@ -14,7 +14,7 @@
 - (id) init {
     self = [super init];
     if(self) {
-        self.backgroundColor = [UIColor lightGrayColor];
+        [self setBackgroundColor: [UIColor whiteColor]];
         [self makeControls];
         [self makeControlConstraints];
     }
@@ -31,31 +31,10 @@
     [self addSubview: self.titleLabel];
     
     //self.initialInstructionLabel
-    self.initialInstructionLabel = [[CNLabel alloc] initWithText:@"The goal of the Spectrum Game is simple: try to match the goal color below by tapping and holding somewhere in the box. You have up to three tries."];
+    self.initialInstructionLabel = [[CNLabel alloc] initWithText:@"The goal of the Spectrum Game is simple: try to match the goal color below by tapping and holding somewhere in the box. For more instructions, click the button in the bottom left."];
     self.initialInstructionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:13.0f];
     self.initialInstructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.initialInstructionLabel];
-    
-    //self.redInstructionLabel
-    self.redInstructionLabel = [[CNLabel alloc] initWithText:@"Touch further down for a redder color."];
-    self.redInstructionLabel.font = [UIFont fontWithName:[AppDelegate boldFontName] size:13.0f];
-    self.redInstructionLabel.textColor = [UIColor redColor];
-    self.redInstructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview: self.redInstructionLabel];
-    
-    //self.blueInstructionLabel
-    self.blueInstructionLabel = [[CNLabel alloc] initWithText:@"Touch further right for a bluer color."];
-    self.blueInstructionLabel.font = [UIFont fontWithName:[AppDelegate boldFontName] size:13.0f];
-    self.blueInstructionLabel.textColor = [UIColor blueColor];
-    self.blueInstructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview: self.blueInstructionLabel];
-    
-    //self.greenInstructionLabel
-    self.greenInstructionLabel = [[CNLabel alloc] initWithText:@"Hold your touch longer for a greener color."];
-    self.greenInstructionLabel.font = [UIFont fontWithName:[AppDelegate boldFontName] size:13.0f];
-    self.greenInstructionLabel.textColor = [UIColor greenColor];
-    self.greenInstructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview: self.greenInstructionLabel];
     
     //self.touchView
     self.touchView = [[TSGTouchableView alloc] init];
@@ -182,72 +161,6 @@
                                                          attribute:NSLayoutAttributeBottom
                                                         multiplier:1.0f
                                                           constant:0.0f],
-                           //self.redInstructionLabel
-                           [NSLayoutConstraint constraintWithItem:self.redInstructionLabel
-                                                        attribute:NSLayoutAttributeLeading
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeLeadingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.redInstructionLabel
-                                                        attribute:NSLayoutAttributeTrailing
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeTrailingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.redInstructionLabel
-                                                        attribute:NSLayoutAttributeTop
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.initialInstructionLabel
-                                                        attribute:NSLayoutAttributeBottom
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           //self.blueInstructionLabel
-                           [NSLayoutConstraint constraintWithItem:self.blueInstructionLabel
-                                                        attribute:NSLayoutAttributeLeading
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeLeadingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.blueInstructionLabel
-                                                        attribute:NSLayoutAttributeTrailing
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeTrailingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.blueInstructionLabel
-                                                        attribute:NSLayoutAttributeTop
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.redInstructionLabel
-                                                        attribute:NSLayoutAttributeBottom
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           //self.greenInstructionLabel
-                           [NSLayoutConstraint constraintWithItem:self.greenInstructionLabel
-                                                        attribute:NSLayoutAttributeLeading
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeLeadingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.greenInstructionLabel
-                                                        attribute:NSLayoutAttributeTrailing
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self
-                                                        attribute:NSLayoutAttributeTrailingMargin
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
-                           [NSLayoutConstraint constraintWithItem:self.greenInstructionLabel
-                                                        attribute:NSLayoutAttributeTop
-                                                        relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.blueInstructionLabel
-                                                        attribute:NSLayoutAttributeBottom
-                                                       multiplier:1.0f
-                                                         constant:0.0f],
                            //self.guessView
                            [NSLayoutConstraint constraintWithItem:self.guessView
                                                         attribute:NSLayoutAttributeLeading
@@ -277,7 +190,7 @@
                                                            toItem:self.guessView
                                                         attribute:NSLayoutAttributeTrailingMargin
                                                        multiplier:1.0f
-                                                         constant:0.0f],
+                                                         constant:-5.0f],
                            [NSLayoutConstraint constraintWithItem:self.guessColorSquare
                                                         attribute:NSLayoutAttributeWidth
                                                         relatedBy:NSLayoutRelationEqual
@@ -343,7 +256,7 @@
                                                            toItem:self.goalView
                                                         attribute:NSLayoutAttributeLeadingMargin
                                                        multiplier:1.0f
-                                                         constant:0.0f],
+                                                         constant:5.0f],
                            [NSLayoutConstraint constraintWithItem:self.goalColorSquare
                                                         attribute:NSLayoutAttributeWidth
                                                         relatedBy:NSLayoutRelationEqual
@@ -458,7 +371,7 @@
                            [NSLayoutConstraint constraintWithItem:self.touchView
                                                         attribute:NSLayoutAttributeTop
                                                         relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.greenInstructionLabel
+                                                           toItem:self.initialInstructionLabel
                                                         attribute:NSLayoutAttributeBottom
                                                        multiplier:1.0f
                                                          constant:0.0f],

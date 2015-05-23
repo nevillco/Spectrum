@@ -19,11 +19,6 @@
 //Paragraph instructions at top of view
 @property CNLabel* initialInstructionLabel;
 
-//Instructions for each color type
-@property CNLabel* redInstructionLabel;
-@property CNLabel* blueInstructionLabel;
-@property CNLabel* greenInstructionLabel;
-
 //Touchable view, usedby player to make a color
 @property TSGTouchableView* touchView;
 
