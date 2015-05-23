@@ -8,6 +8,7 @@
 
 #import "TSGHomeViewController.h"
 #import "TSGHomeView.h"
+#import "AppDelegate.h"
 
 @interface TSGHomeViewController ()
 
@@ -16,7 +17,10 @@
 @implementation TSGHomeViewController
 
 - (void) loadView {
-    self.view = [[TSGHomeView alloc] init];
+    TSGHomeView* view = [[TSGHomeView alloc] init];
+    [view setGoalColor:[AppDelegate randomColor]];
+    [view setGuessColor:[UIColor whiteColor]];
+    self.view = view;
 }
 
 @end

@@ -49,5 +49,11 @@
 + (NSString*) fontName { return @"TrebuchetMS"; }
 + (NSString*) boldFontName { return [NSString stringWithFormat:@"%@-Bold", [self fontName]]; }
 + (int) maxAttemptsPerColor { return 3; }
+//Generates a color with random RGB values (no transparency)
++ (UIColor*) randomColor
+{
+    srand48(time(0));
+    return [UIColor colorWithRed:drand48() green:drand48() blue:drand48() alpha:1];
+}
 
 @end

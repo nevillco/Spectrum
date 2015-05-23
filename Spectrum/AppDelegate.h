@@ -15,6 +15,7 @@
 + (NSString*) fontName;
 + (NSString*) boldFontName;
 + (int) maxAttemptsPerColor;
++ (UIColor*) randomColor;
 
 @end
 
