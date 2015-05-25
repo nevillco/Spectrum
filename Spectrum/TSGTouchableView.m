@@ -76,6 +76,17 @@
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView: self];
     [self makeGridlinesWithX:point.x withY:point.y];
+    
+    [self setRedValue: point.y / self.frame.size.height];
+    [self setBlueValue: point.x / self.frame.size.width];
+    [self setGreenValue: 0.0f];
+    
+    //Progress bars
+    self.progressTimer = [NSTimer scheduledTimerWithTimeInterval: 0.02
+                                                                target:self
+                                                              selector:@selector(updateProgressBarsDuringTouch:)
+                                                              userInfo:nil
+                                                               repeats:YES];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -85,6 +96,9 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint point = [TSGTouchableView boundPointForTouch:[touch locationInView: self] withBounds:self.bounds];
+    
+    [self setRedValue: point.y / self.frame.size.height];
+    [self setBlueValue: point.x / self.frame.size.width];
     
     [self makeGridlinesWithX:point.x withY:point.y];
 }
@@ -102,12 +116,16 @@
     
     //Ignore multiple simultaneous touches (troll)
     if ([touches count] == 1) {
-        NSDate *now = [NSDate date];
-        NSTimeInterval deltaT = [now timeIntervalSinceDate:self.startTime];
+        [self updateGreenValue];
+        [self setRedValue: point.y / self.frame.size.height];
+        [self setBlueValue: point.x / self.frame.size.width];
+        
+        //Stop the timer
+        [self.progressTimer invalidate];
         
         //Generates color using input values
-        UIColor *tryColor  = [self generateColorFromTouchWithX: point.x withY:point.y withTime:(CGFloat)deltaT];
-        [self setBackgroundColor: [tryColor colorWithAlphaComponent:0.5f]];
+        UIColor *tryColor  = [self generateColor];
+        [self setBackgroundColor: [tryColor colorWithAlphaComponent:0.4f]];
         [self setCreatedColor: tryColor];
         [self alertSuperviewToNewColor];
         
@@ -120,6 +138,20 @@
             [self notifyMaxAttempts];
         }
     }
+}
+
+- (void) updateGreenValue {
+    NSDate *now = [NSDate date];
+    NSTimeInterval deltaT = [now timeIntervalSinceDate:self.startTime];
+    float deltaAdjusted = (MAX(0, deltaT - 1.0) / 4.0);
+    [self setGreenValue: deltaAdjusted];
+}
+
+- (void) updateProgressBarsDuringTouch: (NSTimer*) timer {
+    [self updateGreenValue];
+    [self.redProgress setProgress: self.redValue];
+    [self.blueProgress setProgress: self.blueValue];
+    [self.greenProgress setProgress: self.greenValue];
 }
 
 #pragma mark gridline methods
@@ -164,14 +196,9 @@
 
 #pragma mark output
 
-- (UIColor*) generateColorFromTouchWithX: (CGFloat)x withY: (CGFloat)y withTime: (CGFloat)time
+- (UIColor*) generateColor
 {
-    CGFloat trueX, trueY, trueTime;
-    trueX = x / self.frame.size.width; //Adjust range to 1
-    trueY = y / self.frame.size.height; //Ditto
-    trueTime = MIN(1, time / 4.0); //Ditto, for max time = 4 seconds
-    
-    return [UIColor colorWithRed: trueY green: trueTime blue: trueX alpha:1];
+    return [UIColor colorWithRed: self.redValue green: self.greenValue blue: self.blueValue alpha:1];
 }
 
 - (void) notifyMaxAttempts {

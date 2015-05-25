@@ -55,18 +55,21 @@
     self.redProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     self.redProgress.progressTintColor = [UIColor redColor];
     self.redProgress.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.touchView setRedProgress:self.redProgress];
     [self addSubview: self.redProgress];
     
     //self.blueProgress
     self.blueProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     self.blueProgress.progressTintColor = [UIColor blueColor];
     self.blueProgress.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.touchView setBlueProgress: self.blueProgress];
     [self addSubview: self.blueProgress];
     
     //self.greenProgress
     self.greenProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     self.greenProgress.progressTintColor = [UIColor greenColor];
     self.greenProgress.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.touchView setGreenProgress: self.greenProgress];
     [self addSubview: self.greenProgress];
     
     //self.guessView
