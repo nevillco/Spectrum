@@ -26,13 +26,14 @@
         self.layer.borderWidth = 1.0f;
         self.attempts = 0;
         self.createdColor = [UIColor clearColor];
+        
+        //Notify label does not need to be added yet,
+        //because gridlines will remove it anyway
         self.notifyLabel = [[CNLabel alloc] initWithText:@"You've used all of your attempts for this color. Press Submit to see how you did!"];
         self.notifyLabel.textColor = [UIColor clearColor];
         self.notifyLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:12.0f];
         self.notifyLabel.translatesAutoresizingMaskIntoConstraints = NO;
         self.notifyLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview: self.notifyLabel];
-        [self makeNotifyLabelConstraints];
     }
     return self;
 }
@@ -61,6 +62,8 @@
                                                           constant:0.0f]
                             ]];
 }
+
+#pragma mark touch listeners
 
 //Track when touch began
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -119,6 +122,8 @@
     }
 }
 
+#pragma mark gridline methods
+
 - (void) makeGridlinesWithX: (double)xCoord withY: (double)yCoord
 {
     //Removes all existing subviews (old gridlines)
@@ -139,6 +144,8 @@
     [self setNeedsDisplay];
 }
 
+#pragma mark boundary class methods
+
 + (float) boundFloat: (float) val withMin: (float) min withMax: (float) max
 {
     if(val < min) return min;
@@ -154,6 +161,8 @@
                                    withMax:bounds.origin.y + bounds.size.height];
     return touch;
 }
+
+#pragma mark output
 
 - (UIColor*) generateColorFromTouchWithX: (CGFloat)x withY: (CGFloat)y withTime: (CGFloat)time
 {
