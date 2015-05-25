@@ -7,6 +7,7 @@
 //
 
 #import "TSGHomeViewController.h"
+#import "TSGInstructionViewController.h"
 #import "TSGHomeView.h"
 #import "AppDelegate.h"
 
@@ -21,6 +22,23 @@
     [view setGoalColor:[AppDelegate randomColor]];
     [view setGuessColor:[UIColor whiteColor]];
     self.view = view;
+}
+
+- (id) init {
+    self = [super init];
+    if(self) {
+        [self addActions];
+    }
+    return self;
+}
+
+- (void) addActions {
+    TSGHomeView* view = (TSGHomeView*) self.view;
+    [view.instructionButton addTarget:self action:@selector(instructionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void) instructionButtonPressed: (id) sender {
+    [self presentViewController:[[TSGInstructionViewController alloc] init] animated:TRUE completion:nil];
 }
 
 @end

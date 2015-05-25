@@ -14,7 +14,7 @@
 - (id) init {
     self = [super init];
     if(self) {
-        [self setBackgroundColor: [UIColor whiteColor]];
+        [self setBackgroundColor: [UIColor lightGrayColor]];
         [self makeControls];
         [self makeControlConstraints];
     }
@@ -40,11 +40,11 @@
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.titleLabel];
     
-    //self.initialInstructionLabel
-    self.initialInstructionLabel = [[CNLabel alloc] initWithText:@"The goal of the Spectrum Game is simple: try to match the goal color below by tapping and holding somewhere in the box. For more instructions, click the button in the bottom left."];
-    self.initialInstructionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:12.0f];
-    self.initialInstructionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addSubview: self.initialInstructionLabel];
+    //self.topInstructionsLabel
+    self.topInstructionsLabel = [[CNLabel alloc] initWithText:@"The goal of the Spectrum Game is simple: try to match the goal color below by tapping and holding somewhere in the box. For more instructions, click the button in the bottom left."];
+    self.topInstructionsLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:12.0f];
+    self.topInstructionsLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.topInstructionsLabel];
     
     //self.touchView
     self.touchView = [[TSGTouchableView alloc] init];
@@ -67,7 +67,7 @@
     
     //self.greenProgress
     self.greenProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-    self.greenProgress.progressTintColor = [UIColor greenColor];
+    self.greenProgress.progressTintColor = [AppDelegate greenColor];
     self.greenProgress.translatesAutoresizingMaskIntoConstraints = NO;
     [self.touchView setGreenProgress: self.greenProgress];
     [self addSubview: self.greenProgress];
@@ -121,7 +121,7 @@
     
     //self.instructionButton
     self.instructionButton = [[UIButton alloc] init];
-    [self.instructionButton setTitle:@"Hide Instructions" forState:UIControlStateNormal];
+    [self.instructionButton setTitle:@"Show Instructions" forState:UIControlStateNormal];
     [self.instructionButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:11.0f]];
     [self.instructionButton setTitleColor: [UIColor blueColor] forState:UIControlStateNormal];
     [self.instructionButton setTitleColor: [UIColor whiteColor] forState:UIControlStateHighlighted];
@@ -171,22 +171,22 @@
                                                         attribute:NSLayoutAttributeTopMargin
                                                        multiplier:1.0f
                                                          constant:20.0f],
-                           //self.initialInstructionLabel
-                           [NSLayoutConstraint constraintWithItem:self.initialInstructionLabel
+                           //self.topInstructionsLabel
+                           [NSLayoutConstraint constraintWithItem:self.topInstructionsLabel
                                                          attribute:NSLayoutAttributeLeading
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self
                                                          attribute:NSLayoutAttributeLeadingMargin
                                                         multiplier:1.0f
                                                           constant:0.0f],
-                            [NSLayoutConstraint constraintWithItem:self.initialInstructionLabel
+                            [NSLayoutConstraint constraintWithItem:self.topInstructionsLabel
                                                          attribute:NSLayoutAttributeTrailing
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self
                                                          attribute:NSLayoutAttributeTrailingMargin
                                                         multiplier:1.0f
                                                           constant:0.0f],
-                            [NSLayoutConstraint constraintWithItem:self.initialInstructionLabel
+                            [NSLayoutConstraint constraintWithItem:self.topInstructionsLabel
                                                          attribute:NSLayoutAttributeTop
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self.titleLabel
@@ -211,7 +211,7 @@
                            [NSLayoutConstraint constraintWithItem:self.touchView
                                                         attribute:NSLayoutAttributeTop
                                                         relatedBy:NSLayoutRelationEqual
-                                                           toItem:self.initialInstructionLabel
+                                                           toItem:self.topInstructionsLabel
                                                         attribute:NSLayoutAttributeBottom
                                                        multiplier:1.0f
                                                          constant:8.0f],

@@ -17,7 +17,7 @@
 @property CNLabel* titleLabel;
 
 //Paragraph instructions at top of view
-@property CNLabel* initialInstructionLabel;
+@property CNLabel* topInstructionsLabel;
 
 //Touchable view, usedby player to make a color
 @property TSGTouchableView* touchView;
