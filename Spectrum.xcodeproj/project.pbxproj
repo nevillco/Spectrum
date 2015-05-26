@@ -19,6 +19,8 @@
 		2D2D5A841B11150500C46B53 /* TSGColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A831B11150500C46B53 /* TSGColorView.m */; };
 		2D2D5A871B136ADC00C46B53 /* TSGInstructionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A861B136ADC00C46B53 /* TSGInstructionView.m */; };
 		2D2D5A8A1B13900700C46B53 /* TSGInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A891B13900700C46B53 /* TSGInstructionViewController.m */; };
+		2D2D5A8D1B13A87100C46B53 /* TSGResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A8C1B13A87100C46B53 /* TSGResultsView.m */; };
+		2D2D5A901B14E98400C46B53 /* TSGResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A8F1B14E98400C46B53 /* TSGResultsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,10 @@
 		2D2D5A861B136ADC00C46B53 /* TSGInstructionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGInstructionView.m; sourceTree = "<group>"; };
 		2D2D5A881B13900700C46B53 /* TSGInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGInstructionViewController.h; sourceTree = "<group>"; };
 		2D2D5A891B13900700C46B53 /* TSGInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGInstructionViewController.m; sourceTree = "<group>"; };
+		2D2D5A8B1B13A87100C46B53 /* TSGResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGResultsView.h; sourceTree = "<group>"; };
+		2D2D5A8C1B13A87100C46B53 /* TSGResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGResultsView.m; sourceTree = "<group>"; };
+		2D2D5A8E1B14E98400C46B53 /* TSGResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGResultsViewController.h; sourceTree = "<group>"; };
+		2D2D5A8F1B14E98400C46B53 /* TSGResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGResultsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,8 @@
 				2D2D5A551B10EEEE00C46B53 /* TSGHomeViewController.m */,
 				2D2D5A881B13900700C46B53 /* TSGInstructionViewController.h */,
 				2D2D5A891B13900700C46B53 /* TSGInstructionViewController.m */,
+				2D2D5A8E1B14E98400C46B53 /* TSGResultsViewController.h */,
+				2D2D5A8F1B14E98400C46B53 /* TSGResultsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -123,6 +131,8 @@
 				2D2D5A831B11150500C46B53 /* TSGColorView.m */,
 				2D2D5A851B136ADC00C46B53 /* TSGInstructionView.h */,
 				2D2D5A861B136ADC00C46B53 /* TSGInstructionView.m */,
+				2D2D5A8B1B13A87100C46B53 /* TSGResultsView.h */,
+				2D2D5A8C1B13A87100C46B53 /* TSGResultsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -201,8 +211,10 @@
 				2D2D5A531B10EEEE00C46B53 /* AppDelegate.m in Sources */,
 				2D2D5A871B136ADC00C46B53 /* TSGInstructionView.m in Sources */,
 				2D2D5A501B10EEEE00C46B53 /* main.m in Sources */,
+				2D2D5A8D1B13A87100C46B53 /* TSGResultsView.m in Sources */,
 				2D2D5A8A1B13900700C46B53 /* TSGInstructionViewController.m in Sources */,
 				2D2D5A811B1104C300C46B53 /* TSGTouchableView.m in Sources */,
+				2D2D5A901B14E98400C46B53 /* TSGResultsViewController.m in Sources */,
 				2D2D5A841B11150500C46B53 /* TSGColorView.m in Sources */,
 				2D2D5A7E1B10F8A200C46B53 /* CNLabel.m in Sources */,
 				2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */,
@@ -342,6 +354,7 @@
 				2D2D5A6F1B10EEEE00C46B53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
