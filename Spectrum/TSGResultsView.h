@@ -21,6 +21,8 @@
 @property TSGColorView* goalColorSquare;
 //Label for goal color (subview of goalView!)
 @property CNLabel* goalLabel;
+//Label to display RGB of goal (subview of goalView!)
+@property CNLabel* goalRGBLabel;
 
 //View for guessed color
 @property UIView* guessView;
@@ -28,5 +30,7 @@
 @property TSGColorView* guessColorSquare;
 //Label for guess color (subview of guessView!)
 @property CNLabel* guessLabel;
+//Label to display RGB of guess (subview of guessView!)
+@property CNLabel* guessRGBLabel;
 
 @end

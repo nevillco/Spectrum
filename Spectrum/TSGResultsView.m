@@ -48,6 +48,12 @@
     self.guessLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.guessView addSubview: self.guessLabel];
     
+    //self.guessRGBLabel
+    self.guessRGBLabel = [[CNLabel alloc] initWithText:@"(0, 0, 0)"];
+    self.guessRGBLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
+    self.guessRGBLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.guessView addSubview: self.guessRGBLabel];
+    
     //self.goalView
     self.goalView = [[UIView alloc] init];
     self.goalView.backgroundColor = [UIColor whiteColor];
@@ -66,6 +72,12 @@
     self.goalLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
     self.goalLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.goalView addSubview: self.goalLabel];
+    
+    //self.goalRGBLabel
+    self.goalRGBLabel = [[CNLabel alloc] initWithText:@"(0, 0, 0)"];
+    self.goalRGBLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
+    self.goalRGBLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.goalView addSubview: self.goalRGBLabel];
 }
 
 - (void) makeControlConstraints {
@@ -159,6 +171,21 @@
                                                          attribute:NSLayoutAttributeCenterY
                                                         multiplier:1.0f
                                                           constant:0.0f],
+                            //self.guessRGBLabel
+                            [NSLayoutConstraint constraintWithItem:self.guessRGBLabel
+                                                         attribute:NSLayoutAttributeTrailing
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.guessView
+                                                         attribute:NSLayoutAttributeTrailingMargin
+                                                        multiplier:1.0f
+                                                          constant:-5.0f],
+                            [NSLayoutConstraint constraintWithItem:self.guessRGBLabel
+                                                         attribute:NSLayoutAttributeCenterY
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.guessColorSquare
+                                                         attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1.0f
+                                                          constant:0.0f],
                             //self.goalView
                             //This view's leading and trailing go beyond the superview bounds
                             //so the user doesn't see the vertical borders
@@ -224,6 +251,21 @@
                                                          attribute:NSLayoutAttributeCenterY
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self.goalColorSquare
+                                                         attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1.0f
+                                                          constant:0.0f],
+                            //self.goalRGBLabel
+                            [NSLayoutConstraint constraintWithItem:self.goalRGBLabel
+                                                         attribute:NSLayoutAttributeLeading
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.goalView
+                                                         attribute:NSLayoutAttributeLeadingMargin
+                                                        multiplier:1.0f
+                                                          constant:5.0f],
+                            [NSLayoutConstraint constraintWithItem:self.goalRGBLabel
+                                                         attribute:NSLayoutAttributeCenterY
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.goalView
                                                          attribute:NSLayoutAttributeCenterY
                                                         multiplier:1.0f
                                                           constant:0.0f],

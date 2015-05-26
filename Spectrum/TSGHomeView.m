@@ -131,6 +131,7 @@
     [self.submitButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:24.0f]];
     [self.submitButton setTitleColor: [UIColor blueColor] forState:UIControlStateNormal];
     [self.submitButton setTitleColor: [UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self.submitButton setTitleColor: [UIColor grayColor] forState:UIControlStateDisabled];
     self.submitButton.enabled = FALSE;
     self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.submitButton];
