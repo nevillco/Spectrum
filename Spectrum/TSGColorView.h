@@ -10,6 +10,9 @@
 
 @interface TSGColorView : UIView
 
+//Square-shaped simple view with border and rounded corners, used
+//to present a single (guess or goal) color
+
 - (id) initWithColor: (UIColor*) color;
 
 @end

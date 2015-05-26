@@ -11,6 +11,10 @@
 
 @interface TSGTouchableView : UIView
 
+//The view that the user interacts with to generate a color
+//has to interact with progress bars and create gridlines as
+//view is being held
+
 //Number of attempts logged so far
 @property int attempts;
 //Color to output
