@@ -11,6 +11,9 @@
 
 @implementation TSGHomeView
 
+@synthesize guessColor = _guessColor;
+@synthesize goalColor = _goalColor;
+
 - (id) init {
     self = [super init];
     if(self) {
@@ -21,16 +24,28 @@
     return self;
 }
 
+#pragma mark VC communication
+- (UIColor*) guessColor {
+    return _guessColor;
+}
+
 - (void) setGuessColor:(UIColor *)guessColor {
+    _guessColor = guessColor;
     [self.guessColorSquare setBackgroundColor: guessColor];
     [self.guessView setBackgroundColor:[guessColor colorWithAlphaComponent: 0.5f]];
 }
 
+- (UIColor*) goalColor {
+    return _goalColor;
+}
+
 - (void) setGoalColor:(UIColor *)goalColor {
+    _goalColor = goalColor;
     [self.goalColorSquare setBackgroundColor:goalColor];
     [self.goalView setBackgroundColor: [goalColor colorWithAlphaComponent: 0.5f]];
 }
 
+#pragma mark controls
 //Construct, format and add each property of TSGHomeView
 - (void) makeControls {
     //self.titleLabel
@@ -116,6 +131,7 @@
     [self.submitButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:24.0f]];
     [self.submitButton setTitleColor: [UIColor blueColor] forState:UIControlStateNormal];
     [self.submitButton setTitleColor: [UIColor whiteColor] forState:UIControlStateHighlighted];
+    self.submitButton.enabled = FALSE;
     self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.submitButton];
     
@@ -289,6 +305,8 @@
                                                        multiplier:1.0f
                                                          constant:-10.0f],
                            //self.guessView
+                           //This view's leading and trailing go beyond the superview bounds
+                           //so the user doesn't see the vertical borders
                            [NSLayoutConstraint constraintWithItem:self.guessView
                                                         attribute:NSLayoutAttributeLeading
                                                         relatedBy:NSLayoutRelationEqual
@@ -355,6 +373,8 @@
                                                        multiplier:1.0f
                                                          constant:0.0f],
                            //self.goalView
+                           //This view's leading and trailing go beyond the superview bounds
+                           //so the user doesn't see the vertical borders
                            [NSLayoutConstraint constraintWithItem:self.goalView
                                                         attribute:NSLayoutAttributeLeading
                                                         relatedBy:NSLayoutRelationEqual

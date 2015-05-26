@@ -23,12 +23,13 @@
 - (id) initWithGuess: (UIColor*) guessColor withGoal: (UIColor*) goalColor withAttempt: (int) attemptNumber {
     self = [super init];
     if(self) {
-        [self makeStatisticDictionaryForGuess: guessColor forGoal: goalColor onAttempt:attemptNumber];
+        self.statisticDictionary = [self makeStatisticDictionaryForGuess: guessColor forGoal: goalColor onAttempt:attemptNumber];
         [self addActions];
     }
     return self;
 }
 
+#pragma mark statistics/calculations
 - (NSDictionary*) makeStatisticDictionaryForGuess: (UIColor*) guessColor
                                           forGoal: (UIColor*) goalColor
                                         onAttempt: (int) attemptNumber {
@@ -80,6 +81,7 @@
     return dict;
 }
 
+#pragma mark actions/view communication
 - (void) addActions {
     
 }

@@ -212,6 +212,7 @@
 
 - (void) alertSuperviewToNewColor {
     TSGHomeView* homeView = (TSGHomeView*) self.superview;
+    [homeView.submitButton setEnabled: true];
     [homeView setGuessColor: self.createdColor];
 }
 

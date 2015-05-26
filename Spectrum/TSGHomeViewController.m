@@ -8,6 +8,7 @@
 
 #import "TSGHomeViewController.h"
 #import "TSGInstructionViewController.h"
+#import "TSGResultsViewController.h"
 #import "TSGHomeView.h"
 #import "AppDelegate.h"
 
@@ -35,10 +36,16 @@
 - (void) addActions {
     TSGHomeView* view = (TSGHomeView*) self.view;
     [view.instructionButton addTarget:self action:@selector(instructionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [view.submitButton addTarget:self action:@selector(submitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) instructionButtonPressed: (id) sender {
     [self presentViewController:[[TSGInstructionViewController alloc] init] animated:TRUE completion:nil];
+}
+
+- (void) submitButtonPressed: (id) sender {
+    TSGHomeView* view = (TSGHomeView*) self.view;
+    [self presentViewController:[[TSGResultsViewController alloc] initWithGuess:[view guessColor] withGoal:[view goalColor] withAttempt:[view.touchView attempts]] animated:true completion:nil];
 }
 
 @end

@@ -10,4 +10,8 @@
 
 @interface TSGResultsViewController : UIViewController
 
+- (id) initWithGuess: (UIColor*) guessColor withGoal: (UIColor*) goalColor withAttempt: (int) attemptNumber;
+
+@property NSDictionary* statisticDictionary;
+
 @end
