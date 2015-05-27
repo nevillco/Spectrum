@@ -8,6 +8,7 @@
 
 #import "TSGInstructionView.h"
 #import "AppDelegate.h"
+#import "UIColor+TSGColorPresets.h"
 
 @implementation TSGInstructionView
 
@@ -52,7 +53,7 @@
     //self.greenInstructionsLabel
     self.greenInstructionsLabel = [[CNLabel alloc] initWithText:@"Your color will have more green if you tap/hold the box for a longer time (duration). The green bar starts filling up after holding down for 1 second and maxes out at 4 seconds."];
     self.greenInstructionsLabel.font = [UIFont fontWithName:[AppDelegate boldFontName] size:14.0f];
-    self.greenInstructionsLabel.textColor = [AppDelegate greenColor];
+    self.greenInstructionsLabel.textColor = [UIColor TSGGreenColor];
     self.greenInstructionsLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.greenInstructionsLabel];
     

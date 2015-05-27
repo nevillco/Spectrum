@@ -33,8 +33,8 @@
 @property CNLabel* platinumDescriptionLabel;
 
 @property TSGColorView* goldColorView;
-@property CNLabel* goldMedalsView;
-@property CNLabel* goldDescriptionView;
+@property CNLabel* goldMedalsLabel;
+@property CNLabel* goldDescriptionLabel;
 
 @property TSGColorView* silverColorView;
 @property CNLabel* silverMedalsLabel;

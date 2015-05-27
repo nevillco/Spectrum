@@ -8,6 +8,7 @@
 
 #import "TSGHomeView.h"
 #import "AppDelegate.h"
+#import "UIColor+TSGColorPresets.h"
 
 @implementation TSGHomeView
 
@@ -82,7 +83,7 @@
     
     //self.greenProgress
     self.greenProgress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-    self.greenProgress.progressTintColor = [AppDelegate greenColor];
+    self.greenProgress.progressTintColor = [UIColor TSGGreenColor];
     self.greenProgress.translatesAutoresizingMaskIntoConstraints = NO;
     [self.touchView setGreenProgress: self.greenProgress];
     [self addSubview: self.greenProgress];

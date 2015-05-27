@@ -184,9 +184,5 @@
     srand48(time(0));
     return [UIColor colorWithRed:drand48() green:drand48() blue:drand48() alpha:1];
 }
-//[UIColor greenColor] is too light - offering new default
-+ (UIColor*) greenColor {
-    return [UIColor colorWithRed:0.0f green:0.6f blue:0.0f alpha:1.0f];
-}
 
 @end
