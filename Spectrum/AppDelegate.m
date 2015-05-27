@@ -17,7 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [AppDelegate createLocalFileIfNecessary];
+    //[AppDelegate resetLocalStats];
     NSLog(@"%@", [AppDelegate getLocalUserStats]);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TSGHomeViewController* rootViewController = [[TSGHomeViewController alloc] init];
@@ -43,12 +43,30 @@
         //Number of tries
         //Average score
         //Top score
+        //Platinum medals
+        //Gold medals
+        //Silver medals
+        //Bronze medals
         NSString *content = @"0\n"
         "0\n"
         "0.0\n"
-        "0";
+        "0\n"
+        "0\n0\n0\n0";
         
         [[NSFileManager defaultManager] createFileAtPath:fileName contents:[content dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+    }
+}
+
++ (void) resetLocalStats {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@/textfile.txt",
+                          documentsDirectory];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:fileName]){
+        [fileManager removeItemAtPath:fileName error:nil];
+        [AppDelegate createLocalFileIfNecessary];
     }
 }
 
@@ -67,7 +85,11 @@
     return @{@"totalScore": [NSNumber numberWithLongLong:[lines[0] longLongValue]],
              @"numTries": [NSNumber numberWithInt:[lines[1] intValue]],
              @"averageScore": [NSNumber numberWithDouble:[lines[2] doubleValue]],
-             @"topScore": [NSNumber numberWithInt:[lines[3] intValue]]};
+             @"topScore": [NSNumber numberWithInt:[lines[3] intValue]],
+             @"platinum": [NSNumber numberWithInt:[lines[4] intValue]],
+             @"gold": [NSNumber numberWithInt:[lines[5] intValue]],
+             @"silver": [NSNumber numberWithInt:[lines[6] intValue]],
+             @"bronze": [NSNumber numberWithInt:[lines[7] intValue]]};
 }
 
 + (void) updateLocalStatsWithDictionary: (NSDictionary*) statistics {
@@ -88,6 +110,13 @@
     //Update average
     double newAverage = (newTotal / (double)(numTries + 1));
     [localStats setObject:[NSNumber numberWithDouble:newAverage] forKey:@"averageScore"];
+    //Medal
+    NSString* medalEarned = statistics[@"medal"];
+    //Will be true unless no medal earned
+    if(localStats[medalEarned]) {
+        int numOfMedalType = ((NSNumber*)localStats[medalEarned]).intValue;
+        [localStats setObject:[NSNumber numberWithInt:(numOfMedalType+1)] forKey:medalEarned];
+    }
     [AppDelegate writeLocalStatsToTextFile: localStats];
 }
 
@@ -107,9 +136,14 @@
         int numTries = ((NSNumber*)updatedStats[@"numTries"]).intValue;
         double averageScore = ((NSNumber*)updatedStats[@"averageScore"]).doubleValue;
         int topScore = ((NSNumber*)updatedStats[@"topScore"]).intValue;
+        int platinums = ((NSNumber*)updatedStats[@"platinum"]).intValue;
+        int golds = ((NSNumber*)updatedStats[@"gold"]).intValue;
+        int silvers = ((NSNumber*)updatedStats[@"silver"]).intValue;
+        int bronzes = ((NSNumber*)updatedStats[@"bronze"]).intValue;
         
-        NSString* content = [NSString stringWithFormat:@"%lld\n%d\n%f\n%d",
-                             totalScore, numTries, averageScore, topScore];
+        NSString* content = [NSString stringWithFormat:@"%lld\n%d\n%f\n%d\n%d\n%d\n%d\n%d",
+                             totalScore, numTries, averageScore, topScore,
+                             platinums, golds, silvers, bronzes];
         //save content to the documents directory
         [content writeToFile:fileName
                   atomically:NO

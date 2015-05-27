@@ -42,13 +42,15 @@
     int rawScore = [self calculateRawScoreForGuess: guessColor forGoal: goalColor];
     NSMutableDictionary* multipliers = [self calculateMultipliersForGuess:guessColor forGoal:goalColor onAttempt:attemptNumber];
     int finalScore = [self calculateFinalScoreForRawScore:rawScore withMultipliers:multipliers];
+    NSString* medal = [self calculateMedalForRawScore: rawScore];
     
     return @{@"guessColor":guessColor,
              @"goalColor":goalColor,
              @"attemptNumber":[NSNumber numberWithInt:attemptNumber],
              @"rawScore":[NSNumber numberWithInt: rawScore],
              @"multipliers": multipliers,
-             @"finalScore": [NSNumber numberWithInt: finalScore]};
+             @"finalScore": [NSNumber numberWithInt: finalScore],
+             @"medal": medal};
 }
 
 - (int) calculateRawScoreForGuess: (UIColor*) guessColor forGoal: (UIColor*) goalColor {
@@ -64,6 +66,14 @@
     int differences[3] = {ABS(intVals[0]-intVals[3]), ABS(intVals[1]-intVals[4]), ABS(intVals[2]-intVals[5])};
     
     return 765 - differences[0] - differences[1] - differences[2];
+}
+
+- (NSString*) calculateMedalForRawScore: (int) rawScore {
+    if(rawScore == 765) return @"platinum";
+    if(rawScore > 730) return @"gold";
+    if(rawScore > 700) return @"silver";
+    if(rawScore > 650) return @"bronze";
+    return @"no medal";
 }
 
 - (int) calculateFinalScoreForRawScore: (int) rawScore withMultipliers: (NSMutableDictionary*) multipliers {
