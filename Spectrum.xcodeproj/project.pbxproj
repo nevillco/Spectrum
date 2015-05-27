@@ -21,6 +21,8 @@
 		2D2D5A8A1B13900700C46B53 /* TSGInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A891B13900700C46B53 /* TSGInstructionViewController.m */; };
 		2D2D5A8D1B13A87100C46B53 /* TSGResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A8C1B13A87100C46B53 /* TSGResultsView.m */; };
 		2D2D5A901B14E98400C46B53 /* TSGResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A8F1B14E98400C46B53 /* TSGResultsViewController.m */; };
+		2D2D5A931B1634B600C46B53 /* TSGStatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A921B1634B600C46B53 /* TSGStatsView.m */; };
+		2D2D5A961B16378900C46B53 /* TSGStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5A951B16378900C46B53 /* TSGStatsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,10 @@
 		2D2D5A8C1B13A87100C46B53 /* TSGResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGResultsView.m; sourceTree = "<group>"; };
 		2D2D5A8E1B14E98400C46B53 /* TSGResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGResultsViewController.h; sourceTree = "<group>"; };
 		2D2D5A8F1B14E98400C46B53 /* TSGResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGResultsViewController.m; sourceTree = "<group>"; };
+		2D2D5A911B1634B600C46B53 /* TSGStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGStatsView.h; sourceTree = "<group>"; };
+		2D2D5A921B1634B600C46B53 /* TSGStatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGStatsView.m; sourceTree = "<group>"; };
+		2D2D5A941B16378900C46B53 /* TSGStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGStatsViewController.h; sourceTree = "<group>"; };
+		2D2D5A951B16378900C46B53 /* TSGStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGStatsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,8 @@
 				2D2D5A891B13900700C46B53 /* TSGInstructionViewController.m */,
 				2D2D5A8E1B14E98400C46B53 /* TSGResultsViewController.h */,
 				2D2D5A8F1B14E98400C46B53 /* TSGResultsViewController.m */,
+				2D2D5A941B16378900C46B53 /* TSGStatsViewController.h */,
+				2D2D5A951B16378900C46B53 /* TSGStatsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -133,6 +141,8 @@
 				2D2D5A861B136ADC00C46B53 /* TSGInstructionView.m */,
 				2D2D5A8B1B13A87100C46B53 /* TSGResultsView.h */,
 				2D2D5A8C1B13A87100C46B53 /* TSGResultsView.m */,
+				2D2D5A911B1634B600C46B53 /* TSGStatsView.h */,
+				2D2D5A921B1634B600C46B53 /* TSGStatsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -212,6 +222,8 @@
 				2D2D5A871B136ADC00C46B53 /* TSGInstructionView.m in Sources */,
 				2D2D5A501B10EEEE00C46B53 /* main.m in Sources */,
 				2D2D5A8D1B13A87100C46B53 /* TSGResultsView.m in Sources */,
+				2D2D5A961B16378900C46B53 /* TSGStatsViewController.m in Sources */,
+				2D2D5A931B1634B600C46B53 /* TSGStatsView.m in Sources */,
 				2D2D5A8A1B13900700C46B53 /* TSGInstructionViewController.m in Sources */,
 				2D2D5A811B1104C300C46B53 /* TSGTouchableView.m in Sources */,
 				2D2D5A901B14E98400C46B53 /* TSGResultsViewController.m in Sources */,
