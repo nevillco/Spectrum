@@ -9,6 +9,7 @@
 #import "TSGResultsViewController.h"
 #import "TSGHomeViewController.h"
 #import "TSGResultsView.h"
+#import "AppDelegate.h"
 
 @interface TSGResultsViewController ()
 
@@ -27,6 +28,7 @@
         self.statisticDictionary = [self makeStatisticDictionaryForGuess: guessColor forGoal: goalColor onAttempt:attemptNumber];
         TSGResultsView* view = (TSGResultsView*) self.view;
         [view updateControlsWithStatisticDictionary: self.statisticDictionary];
+        [AppDelegate updateLocalStatsWithDictionary: self.statisticDictionary];
         [self addActions];
     }
     return self;
@@ -93,7 +95,7 @@
     }
     
     int differences[3] = {ABS(intVals[0]-intVals[3]), ABS(intVals[1]-intVals[4]), ABS(intVals[2]-intVals[5])};
-    NSLog(@"Differences: %d %d %d", differences[0], differences[1], differences[2]);
+    //NSLog(@"Differences: %d %d %d", differences[0], differences[1], differences[2]);
     
     if(differences[0] == 0 && differences[1] == 0 && differences[2] == 0) {
         [dict setObject:[NSNumber numberWithFloat:3.0] forKey:@"(*3.0) Perfect score"];

@@ -18,5 +18,8 @@
 + (UIColor*) randomColor;
 + (UIColor*) greenColor;
 
++ (NSDictionary*) getLocalUserStats;
++ (void) updateLocalStatsWithDictionary: (NSDictionary*) statistics;
+
 @end
 
