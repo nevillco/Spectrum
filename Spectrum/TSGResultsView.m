@@ -388,7 +388,8 @@
     
     //Raw Score
     int rawScore = ((NSNumber*)statistics[@"rawScore"]).intValue;
-    [self.rawScoreLabel setText:[NSString stringWithFormat:@"Raw score: %d", rawScore]];
+    NSString* medal = statistics[@"medal"];
+    [self.rawScoreLabel setText:[NSString stringWithFormat:@"Raw score: %d (%@)", rawScore, medal]];
     
     //Multipliers
     [self.multipliersLabel setText: [self multiplierStringTextForMultipliers: statistics[@"multipliers"]]];
