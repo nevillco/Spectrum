@@ -10,5 +10,7 @@
 
 @interface TSGHomeViewController : UIViewController
 
+- (void) reload;
+
 @end
 

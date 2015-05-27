@@ -33,6 +33,14 @@
     return self;
 }
 
+- (void) reload {
+    TSGHomeView* view = [[TSGHomeView alloc] init];
+    [view setGoalColor:[AppDelegate randomColor]];
+    [view setGuessColor:[UIColor whiteColor]];
+    self.view = view;
+    [self addActions];
+}
+
 - (void) addActions {
     TSGHomeView* view = (TSGHomeView*) self.view;
     [view.instructionButton addTarget:self action:@selector(instructionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
