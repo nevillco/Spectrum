@@ -33,4 +33,14 @@
 //Label to display RGB of guess (subview of guessView!)
 @property CNLabel* guessRGBLabel;
 
+//Raw score label
+@property CNLabel* rawScoreLabel;
+//Label for list of multipliers (will have many lines)
+@property CNLabel* multipliersLabel;
+//Final score label
+@property CNLabel* finalScoreLabel;
+
+//Button to dismiss VC and return
+@property UIButton* goBackButton;
+
 @end

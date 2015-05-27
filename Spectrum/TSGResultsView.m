@@ -78,6 +78,35 @@
     self.goalRGBLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
     self.goalRGBLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.goalView addSubview: self.goalRGBLabel];
+    
+    //self.rawScoreLabel
+    self.rawScoreLabel = [[CNLabel alloc] initWithText:@"Raw score: 000"];
+    self.rawScoreLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
+    self.rawScoreLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.rawScoreLabel];
+    
+    //self.multipliersLabel
+    self.multipliersLabel = [[CNLabel alloc] initWithText:@"(*1.0) multiplier a\n(*1.0) multiplier b\n(*1.0) multiplier c\n(*1.0) multiplier d"];
+    self.multipliersLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:14.0f];
+    self.multipliersLabel.minimumScaleFactor = 0.6f;
+    self.multipliersLabel.adjustsFontSizeToFitWidth = TRUE;
+    self.multipliersLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.multipliersLabel];
+    
+    //self.finalScoreLabel
+    self.finalScoreLabel = [[CNLabel alloc] initWithText:@"Final score: 000"];
+    self.finalScoreLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
+    self.finalScoreLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview: self.finalScoreLabel];
+    
+    //self.goBackButton
+    self.goBackButton = [[UIButton alloc] init];
+    [self.goBackButton setTitle:@"Go Back" forState:UIControlStateNormal];
+    [self.goBackButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.goBackButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self.goBackButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:24.0f]];
+    self.goBackButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:self.goBackButton];
 }
 
 - (void) makeControlConstraints {
@@ -267,6 +296,66 @@
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:self.goalView
                                                          attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1.0f
+                                                          constant:0.0f],
+                            //self.rawScoreLabel
+                            [NSLayoutConstraint constraintWithItem:self.rawScoreLabel
+                                                         attribute:NSLayoutAttributeLeading
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeLeadingMargin
+                                                        multiplier:1.0f
+                                                          constant:0.0f],
+                            [NSLayoutConstraint constraintWithItem:self.rawScoreLabel
+                                                         attribute:NSLayoutAttributeTop
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.goalView
+                                                         attribute:NSLayoutAttributeBottom
+                                                        multiplier:1.0f
+                                                          constant:8.0f],
+                            //self.multipliersLabel
+                            [NSLayoutConstraint constraintWithItem:self.multipliersLabel
+                                                         attribute:NSLayoutAttributeLeading
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeLeadingMargin
+                                                        multiplier:1.0f
+                                                          constant:0.0f],
+                            [NSLayoutConstraint constraintWithItem:self.multipliersLabel
+                                                         attribute:NSLayoutAttributeTop
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.rawScoreLabel
+                                                         attribute:NSLayoutAttributeBottom
+                                                        multiplier:1.0f
+                                                          constant:8.0f],
+                            //self.finalScoreLabel
+                            [NSLayoutConstraint constraintWithItem:self.finalScoreLabel
+                                                         attribute:NSLayoutAttributeLeading
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeLeadingMargin
+                                                        multiplier:1.0f
+                                                          constant:0.0f],
+                            [NSLayoutConstraint constraintWithItem:self.finalScoreLabel
+                                                         attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self.goBackButton
+                                                         attribute:NSLayoutAttributeTop
+                                                        multiplier:1.0f
+                                                          constant:8.0f],
+                            //self.goBackButton
+                            [NSLayoutConstraint constraintWithItem:self.goBackButton
+                                                         attribute:NSLayoutAttributeCenterX
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeCenterX
+                                                        multiplier:1.0f
+                                                          constant:0.0f],
+                            [NSLayoutConstraint constraintWithItem:self.goBackButton
+                                                         attribute:NSLayoutAttributeBottom
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self
+                                                         attribute:NSLayoutAttributeBottomMargin
                                                         multiplier:1.0f
                                                           constant:0.0f],
                             ]];
