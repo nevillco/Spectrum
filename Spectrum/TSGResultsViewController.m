@@ -70,9 +70,9 @@
 
 - (NSString*) calculateMedalForRawScore: (int) rawScore {
     if(rawScore == 765) return @"platinum";
-    if(rawScore > 730) return @"gold";
-    if(rawScore > 700) return @"silver";
-    if(rawScore > 650) return @"bronze";
+    if(rawScore > 700) return @"gold";
+    if(rawScore > 600) return @"silver";
+    if(rawScore > 500) return @"bronze";
     return @"no medal";
 }
 

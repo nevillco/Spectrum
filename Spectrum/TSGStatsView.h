@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CNLabel.h"
+#import "TSGColorView.h"
 
 @interface TSGStatsView : UIView
 
@@ -23,6 +24,25 @@
 @property CNLabel* topScoreLabel;
 //Button to dismiss VC and go back home
 @property UIButton* goBackButton;
+
+//For each medal type: a color view,
+//a medalsLabel stating how many, and a descriptionLabel
+//expaining criteria for achieving
+@property TSGColorView* platinumColorView;
+@property CNLabel* platinumMedalsLabel;
+@property CNLabel* platinumDescriptionLabel;
+
+@property TSGColorView* goldColorView;
+@property CNLabel* goldMedalsView;
+@property CNLabel* goldDescriptionView;
+
+@property TSGColorView* silverColorView;
+@property CNLabel* silverMedalsLabel;
+@property CNLabel* silverDescriptionLabel;
+
+@property TSGColorView* bronzeColorView;
+@property CNLabel* bronzeMedalsLabel;
+@property CNLabel* bronzeDescriptionLabel;
 
 - (void) updateWithStatistics: (NSDictionary*) statistics;
 
