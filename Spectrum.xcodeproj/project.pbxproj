@@ -40,6 +40,7 @@
 		2D2D5AB61B16706300C46B53 /* TSGParseReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5AB51B16706300C46B53 /* TSGParseReader.m */; };
 		2D2D5ABA1B16746E00C46B53 /* TSGLeaderboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5AB91B16746E00C46B53 /* TSGLeaderboardView.m */; };
 		2D2D5ABD1B16861600C46B53 /* TSGLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5ABC1B16861600C46B53 /* TSGLeaderboardViewController.m */; };
+		2D2D5AC31B1688FF00C46B53 /* TSGLeaderboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5AC21B1688FF00C46B53 /* TSGLeaderboardCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,8 @@
 		2D2D5AB91B16746E00C46B53 /* TSGLeaderboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGLeaderboardView.m; sourceTree = "<group>"; };
 		2D2D5ABB1B16861600C46B53 /* TSGLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGLeaderboardViewController.h; sourceTree = "<group>"; };
 		2D2D5ABC1B16861600C46B53 /* TSGLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGLeaderboardViewController.m; sourceTree = "<group>"; };
+		2D2D5AC11B1688FF00C46B53 /* TSGLeaderboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGLeaderboardCell.h; sourceTree = "<group>"; };
+		2D2D5AC21B1688FF00C46B53 /* TSGLeaderboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGLeaderboardCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,8 @@
 				2D2D5A921B1634B600C46B53 /* TSGStatsView.m */,
 				2D2D5AB81B16746E00C46B53 /* TSGLeaderboardView.h */,
 				2D2D5AB91B16746E00C46B53 /* TSGLeaderboardView.m */,
+				2D2D5AC11B1688FF00C46B53 /* TSGLeaderboardCell.h */,
+				2D2D5AC21B1688FF00C46B53 /* TSGLeaderboardCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				2D2D5A501B10EEEE00C46B53 /* main.m in Sources */,
 				2D2D5A8D1B13A87100C46B53 /* TSGResultsView.m in Sources */,
 				2D2D5A991B16698000C46B53 /* UIColor+TSGColorPresets.m in Sources */,
+				2D2D5AC31B1688FF00C46B53 /* TSGLeaderboardCell.m in Sources */,
 				2D2D5A961B16378900C46B53 /* TSGStatsViewController.m in Sources */,
 				2D2D5A931B1634B600C46B53 /* TSGStatsView.m in Sources */,
 				2D2D5A8A1B13900700C46B53 /* TSGInstructionViewController.m in Sources */,

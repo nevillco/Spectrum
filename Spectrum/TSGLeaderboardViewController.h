@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TSGLeaderboardViewController : UIViewController
+@interface TSGLeaderboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

@@ -8,6 +8,8 @@
 
 @interface TSGParseReader : NSObject
 
++ (int) maximumLeaderboardEntries;
 + (int) minimumScoreForLeaderboard;
++ (NSArray*) leaderboardEntries;
 
 @end
