@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "TSGHomeViewController.h"
+#import <Parse/Parse.h>
+#import "TSGParseReader.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:path];
+    // Initialize Parse
+    [Parse setApplicationId:[plist objectForKey:@"ParseAppId"]
+                  clientKey:[plist objectForKey:@"ParseClientKey"]];
+    
+    //Test parse leaderboard
+    //NSLog(@"%d", [TSGParseReader minimumScoreForLeaderboard]);
+    
     //[AppDelegate resetLocalStats];
     //NSLog(@"%@", [AppDelegate getLocalUserStats]);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

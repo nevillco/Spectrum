@@ -39,8 +39,6 @@
 }
 
 - (void) goBackButtonPressed: (id) sender {
-    TSGHomeViewController* presenter = (TSGHomeViewController*) self.presentingViewController;
-    [presenter reload];
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

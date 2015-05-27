@@ -37,6 +37,9 @@
 		2D2D5AAF1B166F6B00C46B53 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2D5AAE1B166F6B00C46B53 /* SystemConfiguration.framework */; };
 		2D2D5AB21B166F8A00C46B53 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2D5AB11B166F8A00C46B53 /* libz.dylib */; };
 		2D2D5AB41B166F9200C46B53 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2D5AB31B166F9200C46B53 /* libsqlite3.dylib */; };
+		2D2D5AB61B16706300C46B53 /* TSGParseReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5AB51B16706300C46B53 /* TSGParseReader.m */; };
+		2D2D5ABA1B16746E00C46B53 /* TSGLeaderboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5AB91B16746E00C46B53 /* TSGLeaderboardView.m */; };
+		2D2D5ABD1B16861600C46B53 /* TSGLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5ABC1B16861600C46B53 /* TSGLeaderboardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +89,12 @@
 		2D2D5AAE1B166F6B00C46B53 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D2D5AB11B166F8A00C46B53 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2D2D5AB31B166F9200C46B53 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		2D2D5AB51B16706300C46B53 /* TSGParseReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGParseReader.m; sourceTree = "<group>"; };
+		2D2D5AB71B16707800C46B53 /* TSGParseReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSGParseReader.h; sourceTree = "<group>"; };
+		2D2D5AB81B16746E00C46B53 /* TSGLeaderboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGLeaderboardView.h; sourceTree = "<group>"; };
+		2D2D5AB91B16746E00C46B53 /* TSGLeaderboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGLeaderboardView.m; sourceTree = "<group>"; };
+		2D2D5ABB1B16861600C46B53 /* TSGLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSGLeaderboardViewController.h; sourceTree = "<group>"; };
+		2D2D5ABC1B16861600C46B53 /* TSGLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSGLeaderboardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +142,8 @@
 		2D2D5A4C1B10EEEE00C46B53 /* Spectrum */ = {
 			isa = PBXGroup;
 			children = (
+				2D2D5AB51B16706300C46B53 /* TSGParseReader.m */,
+				2D2D5AB71B16707800C46B53 /* TSGParseReader.h */,
 				2D2D5AB01B166F7000C46B53 /* Frameworks */,
 				2D2D5A971B16698000C46B53 /* UIColor+TSGColorPresets.h */,
 				2D2D5A981B16698000C46B53 /* UIColor+TSGColorPresets.m */,
@@ -169,6 +180,8 @@
 				2D2D5A8F1B14E98400C46B53 /* TSGResultsViewController.m */,
 				2D2D5A941B16378900C46B53 /* TSGStatsViewController.h */,
 				2D2D5A951B16378900C46B53 /* TSGStatsViewController.m */,
+				2D2D5ABB1B16861600C46B53 /* TSGLeaderboardViewController.h */,
+				2D2D5ABC1B16861600C46B53 /* TSGLeaderboardViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +201,8 @@
 				2D2D5A8C1B13A87100C46B53 /* TSGResultsView.m */,
 				2D2D5A911B1634B600C46B53 /* TSGStatsView.h */,
 				2D2D5A921B1634B600C46B53 /* TSGStatsView.m */,
+				2D2D5AB81B16746E00C46B53 /* TSGLeaderboardView.h */,
+				2D2D5AB91B16746E00C46B53 /* TSGLeaderboardView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -291,9 +306,12 @@
 				2D2D5A961B16378900C46B53 /* TSGStatsViewController.m in Sources */,
 				2D2D5A931B1634B600C46B53 /* TSGStatsView.m in Sources */,
 				2D2D5A8A1B13900700C46B53 /* TSGInstructionViewController.m in Sources */,
+				2D2D5AB61B16706300C46B53 /* TSGParseReader.m in Sources */,
 				2D2D5A811B1104C300C46B53 /* TSGTouchableView.m in Sources */,
 				2D2D5A901B14E98400C46B53 /* TSGResultsViewController.m in Sources */,
 				2D2D5A841B11150500C46B53 /* TSGColorView.m in Sources */,
+				2D2D5ABA1B16746E00C46B53 /* TSGLeaderboardView.m in Sources */,
+				2D2D5ABD1B16861600C46B53 /* TSGLeaderboardViewController.m in Sources */,
 				2D2D5A7E1B10F8A200C46B53 /* CNLabel.m in Sources */,
 				2D2D5A7B1B10F20E00C46B53 /* TSGHomeView.m in Sources */,
 			);

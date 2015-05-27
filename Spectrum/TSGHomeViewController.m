@@ -10,6 +10,7 @@
 #import "TSGInstructionViewController.h"
 #import "TSGResultsViewController.h"
 #import "TSGStatsViewController.h"
+#import "TSGLeaderboardViewController.h"
 #import "TSGHomeView.h"
 #import "AppDelegate.h"
 
@@ -46,6 +47,7 @@
     TSGHomeView* view = (TSGHomeView*) self.view;
     [view.instructionButton addTarget:self action:@selector(instructionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [view.myStatsButton addTarget:self action:@selector(myStatsButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [view.leaderboardButton addTarget:self action:@selector(leaderboardButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [view.submitButton addTarget:self action:@selector(submitButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -55,6 +57,10 @@
 
 - (void) myStatsButtonPressed: (id) sender {
     [self presentViewController:[[TSGStatsViewController alloc] init] animated:TRUE completion:nil];
+}
+
+- (void) leaderboardButtonPressed: (id) sender {
+    [self presentViewController:[[TSGLeaderboardViewController alloc] init] animated:TRUE completion:nil];
 }
 
 - (void) submitButtonPressed: (id) sender {
