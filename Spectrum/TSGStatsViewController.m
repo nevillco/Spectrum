@@ -9,6 +9,7 @@
 #import "TSGStatsViewController.h"
 #import "TSGHomeViewController.h"
 #import "TSGStatsView.h"
+#import "AppDelegate.h"
 
 @interface TSGStatsViewController ()
 
@@ -19,6 +20,8 @@
 - (void) loadView {
     TSGStatsView* view = [[TSGStatsView alloc] init];
     self.view = view;
+    NSDictionary* localStats = [AppDelegate getLocalUserStats];
+    [view updateWithStatistics: localStats];
 }
 
 - (id) init {

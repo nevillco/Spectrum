@@ -24,4 +24,6 @@
 //Button to dismiss VC and go back home
 @property UIButton* goBackButton;
 
+- (void) updateWithStatistics: (NSDictionary*) statistics;
+
 @end

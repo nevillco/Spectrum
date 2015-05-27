@@ -18,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AppDelegate createLocalFileIfNecessary];
+    NSLog(@"%@", [AppDelegate getLocalUserStats]);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TSGHomeViewController* rootViewController = [[TSGHomeViewController alloc] init];
     [self.window setRootViewController: rootViewController];

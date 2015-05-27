@@ -21,6 +21,33 @@
     return self;
 }
 
+- (void)updateWithStatistics:(NSDictionary *)statistics {
+    NSNumber* totalScore = ((NSNumber*)statistics[@"totalScore"]);
+    int numAttempts = ((NSNumber*)statistics[@"numTries"]).intValue;
+    double averageScore = ((NSNumber*)statistics[@"averageScore"]).doubleValue;
+    int topScore = ((NSNumber*)statistics[@"topScore"]).intValue;
+    [self.totalScoreLabel setText: [NSString stringWithFormat:@"%@ total score",[TSGStatsView numberWithShortcut:totalScore]]];
+    [self.numAttemptsLabel setText:[NSString stringWithFormat:@"%d total plays",numAttempts]];
+    [self.averageScoreLabel setText:[NSString stringWithFormat:@"%.2f average score",averageScore]];
+    [self.topScoreLabel setText:[NSString stringWithFormat:@"%d best score",topScore]];
+}
+
++(NSString*)numberWithShortcut:(NSNumber*)number
+{
+    unsigned long long value = [number longLongValue];
+    
+    NSUInteger index = 0;
+    double dvalue = (double)value;
+    
+    NSArray *suffix = @[ @"", @"K", @"M", @"B", @"T", @"P", @"E" ];
+    
+    while ((value /= 1000) && ++index) dvalue /= 1000;
+    
+    NSString *svalue = [NSString stringWithFormat:@"%@%@",[NSNumber numberWithDouble:dvalue], [suffix objectAtIndex:index]];
+    
+    return svalue;
+}
+
 - (void) makeControls {
     //self.titleLabel
     self.titleLabel = [[CNLabel alloc] initWithText:@"Spectrum"];
