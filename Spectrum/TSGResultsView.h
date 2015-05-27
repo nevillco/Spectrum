@@ -43,4 +43,7 @@
 //Button to dismiss VC and return
 @property UIButton* goBackButton;
 
+//Method used to update view after calculating stats
+- (void) updateControlsWithStatisticDictionary: (NSDictionary*) statistics;
+
 @end

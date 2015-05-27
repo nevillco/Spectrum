@@ -24,6 +24,8 @@
     self = [super init];
     if(self) {
         self.statisticDictionary = [self makeStatisticDictionaryForGuess: guessColor forGoal: goalColor onAttempt:attemptNumber];
+        TSGResultsView* view = (TSGResultsView*) self.view;
+        [view updateControlsWithStatisticDictionary: self.statisticDictionary];
         [self addActions];
     }
     return self;
@@ -55,7 +57,7 @@
     
     int intVals[6];
     for(int i = 0; i < 6; i++) {
-        intVals[i] = (int)(floatVals[i] * 256);
+        intVals[i] = (int)(floatVals[i] * 255);
     }
     
     return 765 - (ABS(intVals[0]-intVals[3]) + ABS(intVals[1]-intVals[4]) + ABS(intVals[2]-intVals[5]));
@@ -74,9 +76,9 @@
                                             onAttempt: (int) attemptNumber {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithCapacity:2];
     
-    if(attemptNumber == 1) [dict setObject:[NSNumber numberWithFloat: 1.5] forKey:@"First attempt"];
-    else if(attemptNumber == 2) [dict setObject:[NSNumber numberWithFloat:1.25] forKey:@"Second attempt"];
-    else [dict setObject:[NSNumber numberWithFloat:1.0] forKey:@"Last attempt"];
+    if(attemptNumber == 1) [dict setObject:[NSNumber numberWithFloat: 1.5] forKey:@"(*1.5) First attempt"];
+    else if(attemptNumber == 2) [dict setObject:[NSNumber numberWithFloat:1.25] forKey:@"(*1.25) Second attempt"];
+    else [dict setObject:[NSNumber numberWithFloat:1.0] forKey:@"(*1.0) Last attempt"];
     
     return dict;
 }

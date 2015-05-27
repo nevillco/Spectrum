@@ -95,7 +95,7 @@
     
     //self.finalScoreLabel
     self.finalScoreLabel = [[CNLabel alloc] initWithText:@"Final score: 000"];
-    self.finalScoreLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:18.0f];
+    self.finalScoreLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:24.0f];
     self.finalScoreLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.finalScoreLabel];
     
@@ -342,7 +342,7 @@
                                                             toItem:self.goBackButton
                                                          attribute:NSLayoutAttributeTop
                                                         multiplier:1.0f
-                                                          constant:8.0f],
+                                                          constant:0.0f],
                             //self.goBackButton
                             [NSLayoutConstraint constraintWithItem:self.goBackButton
                                                          attribute:NSLayoutAttributeCenterX
@@ -361,4 +361,50 @@
                             ]];
 }
 
+- (void) updateControlsWithStatisticDictionary: (NSDictionary*) statistics {
+    //Colors
+    UIColor* guessColor = statistics[@"guessColor"];
+    UIColor* goalColor = statistics[@"goalColor"];
+    //RGB vals
+    CGFloat floatVals[6];
+    [guessColor getRed:&floatVals[0] green:&floatVals[1] blue:&floatVals[2] alpha:nil];
+    [goalColor getRed:&floatVals[3] green:&floatVals[4] blue:&floatVals[5] alpha:nil];
+    
+    int intVals[6];
+    for(int i = 0; i < 6; i++) {
+        intVals[i] = (int)(floatVals[i] * 255);
+    }
+    
+    //Update UI
+    //Guess Color
+    [self.guessColorSquare setBackgroundColor: guessColor];
+    [self.guessView setBackgroundColor: [guessColor colorWithAlphaComponent: 0.5f]];
+    [self.guessRGBLabel setText:[NSString stringWithFormat:@"(%d, %d, %d)", intVals[0], intVals[1], intVals[2]]];
+    
+    //Goal Color
+    [self.goalColorSquare setBackgroundColor: goalColor];
+    [self.goalView setBackgroundColor: [goalColor colorWithAlphaComponent: 0.5f]];
+    [self.goalRGBLabel setText:[NSString stringWithFormat:@"(%d, %d, %d)", intVals[3], intVals[4], intVals[5]]];
+    
+    //Raw Score
+    int rawScore = ((NSNumber*)statistics[@"rawScore"]).intValue;
+    [self.rawScoreLabel setText:[NSString stringWithFormat:@"Raw score: %d", rawScore]];
+    
+    //Multipliers
+    [self.multipliersLabel setText: [self multiplierStringTextForMultipliers: statistics[@"multipliers"]]];
+    
+    //Final Score
+    int finalScore = ((NSNumber*)statistics[@"finalScore"]).intValue;
+    [self.finalScoreLabel setText:[NSString stringWithFormat:@"Final score: %d", finalScore]];
+}
+
+- (NSString*) multiplierStringTextForMultipliers: (NSMutableDictionary*) multipliers {
+    NSMutableString *resultString = [NSMutableString string];
+    for (NSString* key in [multipliers allKeys]){
+        if ([resultString length]>0)
+            [resultString appendString:@"\n"];
+        [resultString appendFormat:@"%@", key];
+    }
+    return resultString;
+}
 @end
