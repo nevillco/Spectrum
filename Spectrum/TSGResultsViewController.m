@@ -9,6 +9,7 @@
 #import "TSGResultsViewController.h"
 #import "TSGHomeViewController.h"
 #import "TSGResultsView.h"
+#import "TSGParseReader.h"
 #import "AppDelegate.h"
 
 @interface TSGResultsViewController ()
@@ -32,6 +33,10 @@
         [self addActions];
     }
     return self;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [self checkLeaderboard];
 }
 
 #pragma mark statistics/calculations
@@ -172,6 +177,60 @@
     TSGHomeViewController* presenter = (TSGHomeViewController*) self.presentingViewController;
     [presenter reload];
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void) checkLeaderboard {
+    int score = ((NSNumber*)self.statisticDictionary[@"finalScore"]).intValue;
+    BOOL shouldAdd = [TSGParseReader shouldAddScoreToLeaderboard: score];
+    NSLog(@"%d", shouldAdd);
+    if(shouldAdd) {
+        [self displayNameAlertWithText:@"Your final score of %d was good enough to make the global leaderboard. If you want to publish your score, enter a name below." forScore:score];
+    }
+}
+
+- (void) displayNameAlertWithText: (NSString*) text forScore: (int) score {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Leaderboard" message:[NSString stringWithFormat: text, score] preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Name";
+    }];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Submit"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             NSString* name = ((UITextField*)alert.textFields.firstObject).text;
+                             NSString* nameValidity = [self nameValidity: name];
+                             if([nameValidity isEqualToString: @"Valid"]) {
+                                 [TSGParseReader addScoreToLeaderboard:score withName:name];
+                             }
+                             else {
+                                 [self displayNameAlertWithText:nameValidity forScore:score];
+                             }
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"No Thanks"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alert addAction:ok];
+    [alert addAction:cancel];
+    [self presentViewController: alert animated:true completion:nil];
+}
+
+//Return "Valid" if valid, otherwise, return error message.
+- (NSString*) nameValidity: (NSString*) name {
+    if(name.length < 4) return @"Your name has to be at least 4 characters.";
+    if(name.length > 12) return @"Your name can be at most 12 characters.";
+    return @"Valid";
 }
 
 @end

@@ -11,5 +11,7 @@
 + (int) maximumLeaderboardEntries;
 + (int) minimumScoreForLeaderboard;
 + (NSArray*) leaderboardEntries;
++ (BOOL) shouldAddScoreToLeaderboard: (int) score;
++ (void) addScoreToLeaderboard: (int) score withName: (NSString*) name;
 
 @end
