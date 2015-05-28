@@ -25,9 +25,17 @@
 - (id) init {
     self = [super init];
     if(self) {
-        self.leaderboardEntries = [TSGParseReader leaderboardEntries];
-        [self addActions];
-        [self configureTable];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+        dispatch_async(queue, ^{
+            self.leaderboardEntries = [TSGParseReader leaderboardEntries];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self addActions];
+                [self configureTable];
+                TSGLeaderboardView* view = (TSGLeaderboardView*) self.view;
+                UITableView* table = view.leaderboardTable;
+                [table reloadData];
+            });
+        });
     }
     return self;
 }

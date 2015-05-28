@@ -36,7 +36,15 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    [self checkLeaderboard];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        [self checkLeaderboard];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            // Example:
+            // self.myLabel.text = result;
+        });
+    });
 }
 
 #pragma mark statistics/calculations

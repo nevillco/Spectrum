@@ -42,11 +42,12 @@
 + (void) addScoreToLeaderboard: (int) score withName: (NSString*) name {
     PFQuery *query = [PFQuery queryWithClassName:@"Score"];
     [query orderByAscending:@"score"];
-    NSArray* values = [query findObjects];
-    if(values.count == [TSGParseReader maximumLeaderboardEntries]) {
-        PFObject* first = [values firstObject];
-        [first deleteEventually];
-    }
+    [query findObjectsInBackgroundWithBlock:^(NSArray* objects, NSError* error) {
+        if(objects.count == [TSGParseReader maximumLeaderboardEntries]) {
+            PFObject* first = [objects firstObject];
+            [first deleteEventually];
+        }
+    }];
     PFObject* newObj = [PFObject objectWithClassName:@"Score"];
     newObj[@"score"] = [NSNumber numberWithInt:score];
     newObj[@"playerName"] = name;
