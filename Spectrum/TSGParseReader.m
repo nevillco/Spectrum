@@ -36,22 +36,17 @@
 
 + (BOOL) shouldAddScoreToLeaderboard: (int) score {
     PFQuery *query = [PFQuery queryWithClassName:@"Score"];
-    [query orderByAscending:@"score"];
+    [query orderByDescending:@"score"];
+    [query setLimit: [TSGParseReader maximumLeaderboardEntries]];
     NSArray* values = [query findObjects];
-    PFObject* first = [values firstObject];
-    int minimum = ((NSNumber*)first[@"score"]).intValue;
+    PFObject* last = [values lastObject];
+    int minimum = ((NSNumber*)last[@"score"]).intValue;
+    NSLog(@"Scores: %lu minimum: %d shouldAdd: %d",
+          (unsigned long)values.count, minimum, (score > minimum) || (values.count < 25));
     return (score > minimum) || (values.count < 25);
 }
 
 + (void) addScoreToLeaderboard: (int) score withName: (NSString*) name {
-    PFQuery *query = [PFQuery queryWithClassName:@"Score"];
-    [query orderByAscending:@"score"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray* objects, NSError* error) {
-        if(objects.count == [TSGParseReader maximumLeaderboardEntries]) {
-            PFObject* first = [objects firstObject];
-            [first deleteEventually];
-        }
-    }];
     PFObject* newObj = [PFObject objectWithClassName:@"Score"];
     newObj[@"score"] = [NSNumber numberWithInt:score];
     newObj[@"playerName"] = name;
