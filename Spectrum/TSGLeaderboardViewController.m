@@ -59,7 +59,7 @@
 }
 
 
-
+#pragma mark table delegate/data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -75,12 +75,19 @@
     if(!cell) {
         cell = [[TSGLeaderboardCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
+    
+    //Any styling based on row number (alternating highlighting)
     [cell setStyleForRowIndex: (int)indexPath.row];
+    
+    //Always need if/else because of cell reuse!
     if(self.leaderboardEntries.count <= indexPath.row) {
-        [cell makeEmpty];
+        //Make labels have empty string (don't remove, because
+        //constant removal/addition would be a paina
+        [cell makeLabelsEmpty];
     }
     else {
-        [cell updateWithEntry: (PFObject*)(self.leaderboardEntries[indexPath.row])];
+        //Update labels with names/scores
+        [cell updateLabelsWithEntry: (PFObject*)(self.leaderboardEntries[indexPath.row])];
     }
     
     return cell;

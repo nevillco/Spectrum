@@ -26,23 +26,26 @@
 - (id) initWithGuess: (UIColor*) guessColor withGoal: (UIColor*) goalColor withAttempt: (int) attemptNumber {
     self = [super init];
     if(self) {
+        //Make statistic dictionary
         self.statisticDictionary = [self makeStatisticDictionaryForGuess: guessColor forGoal: goalColor onAttempt:attemptNumber];
+        //Update text file with new statistics
+        [AppDelegate updateLocalStatsWithDictionary: self.statisticDictionary];
+        //Update view with current statistics
         TSGResultsView* view = (TSGResultsView*) self.view;
         [view updateControlsWithStatisticDictionary: self.statisticDictionary];
-        [AppDelegate updateLocalStatsWithDictionary: self.statisticDictionary];
         [self addActions];
     }
     return self;
 }
 
+//Checking for leaderboard requires presenting alertview, which requires the
+//ResultsView to be already in the view hierarchy
 - (void) viewDidAppear:(BOOL)animated {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
+        //Check for leaderboard in background queue
         [self checkLeaderboard];
         dispatch_sync(dispatch_get_main_queue(), ^{
-            // Update UI
-            // Example:
-            // self.myLabel.text = result;
         });
     });
 }
@@ -221,6 +224,7 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+#pragma  mark leaderboard
 - (void) checkLeaderboard {
     int score = ((NSNumber*)self.statisticDictionary[@"finalScore"]).intValue;
     BOOL shouldAdd = [TSGParseReader shouldAddScoreToLeaderboard: score];
@@ -229,6 +233,7 @@
     }
 }
 
+//Method needs to be callable in case of invalid name
 - (void) displayNameAlertWithText: (NSString*) text forScore: (int) score {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Leaderboard" message:[NSString stringWithFormat: text, score] preferredStyle:UIAlertControllerStyleAlert];
     
@@ -268,6 +273,7 @@
 }
 
 //Return "Valid" if valid, otherwise, return error message.
+//Uncertain whether to include obscenity filter here
 - (NSString*) nameValidity: (NSString*) name {
     if(name.length < 3) return @"Your name has to be at least 3 characters.";
     if(name.length > 12) return @"Your name can be at most 12 characters.";

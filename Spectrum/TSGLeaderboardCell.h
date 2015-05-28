@@ -15,8 +15,8 @@
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 - (void) setStyleForRowIndex: (int) rowIndex;
-- (void) makeEmpty;
-- (void) updateWithEntry: (PFObject*) entry;
+- (void) makeLabelsEmpty;
+- (void) updateLabelsWithEntry: (PFObject*) entry;
 
 @property CNLabel* playerNameLabel;
 @property CNLabel* scoreLabel;

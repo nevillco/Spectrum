@@ -25,6 +25,7 @@
     return self;
 }
 
+//Style based on row number
 - (void) setStyleForRowIndex: (int) rowIndex {
     if(rowIndex % 2 == 0) {
         self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.4f];
@@ -34,6 +35,7 @@
     }
 }
 
+//Remove all existing controls (only call on init)
 - (void) clearControls {
     if ([self subviews]) {
         for (UIView *subview in [self subviews]) {
@@ -42,12 +44,12 @@
     }
 }
 
-- (void) makeEmpty {
+- (void) makeLabelsEmpty {
     self.playerNameLabel.text = @"";
     self.scoreLabel.text = @"";
 }
 
-- (void) updateWithEntry: (PFObject*) entry {
+- (void) updateLabelsWithEntry: (PFObject*) entry {
     self.playerNameLabel.text = entry[@"playerName"];
     self.scoreLabel.text = [entry[@"score"] stringValue];
 }

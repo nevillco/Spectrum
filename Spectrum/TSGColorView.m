@@ -18,6 +18,8 @@
         self.layer.borderWidth = 1.0f;
         self.layer.cornerRadius = 5.0f;
         //Constraint: height = width (square)
+        //Note: will cause conflicting constraints if height is set
+        //(container views should set WIDTH, not HEIGHT!)
         [self addConstraint: [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1.0f constant:0.0f]];
     }
     return self;
@@ -31,6 +33,8 @@
         self.layer.borderWidth = 1.0f;
         self.layer.cornerRadius = 5.0f;
         //Constraint: height = width (square)
+        //Note: will cause conflicting constraints if height is set
+        //(container views should set WIDTH, not HEIGHT!)
         [self addConstraint: [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1.0f constant:0.0f]];
     }
     return self;

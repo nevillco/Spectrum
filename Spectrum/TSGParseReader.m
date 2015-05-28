@@ -10,6 +10,10 @@
 #import "TSGParseReader.h"
 #import <Parse/Parse.h>
 
+//Class containing static methods for Parse queries
+//(handle in background thread when query results
+//not necessary for return value)
+
 @implementation TSGParseReader
 
 + (int) maximumLeaderboardEntries { return 25; }

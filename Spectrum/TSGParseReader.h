@@ -8,6 +8,10 @@
 
 @interface TSGParseReader : NSObject
 
+//Class containing static methods for Parse queries
+//(handle in background thread when query results
+//not necessary for return value)
+
 + (int) maximumLeaderboardEntries;
 + (int) minimumScoreForLeaderboard;
 + (NSArray*) leaderboardEntries;
