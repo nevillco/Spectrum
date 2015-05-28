@@ -29,8 +29,9 @@
     //Test parse leaderboard
     //NSLog(@"%d", [TSGParseReader minimumScoreForLeaderboard]);
     
-    //[AppDelegate resetLocalStats];
-    //NSLog(@"%@", [AppDelegate getLocalUserStats]);
+    [AppDelegate resetLocalStats];
+    NSLog(@"%@", [AppDelegate getLocalUserStats]);
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TSGHomeViewController* rootViewController = [[TSGHomeViewController alloc] init];
     [self.window setRootViewController: rootViewController];

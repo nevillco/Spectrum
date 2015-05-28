@@ -142,7 +142,7 @@
         [dict setObject:[NSNumber numberWithFloat:1.5] forKey:@"(*1.5) All colors within 50"];
     }
     
-    if(![dict objectForKey:@"(*2.0) Perfect score"]) {
+    if(![dict objectForKey:@"(*3.0) Perfect score"]) {
         if((differences[0] + differences[1] == 0) || (differences[1] + differences[2] == 0) || (differences[2] + differences[0] == 0)) {
             [dict setObject:[NSNumber numberWithFloat:2.9] forKey:@"(*2.9) Two colors perfect"];
         }
@@ -172,6 +172,26 @@
         }
     }
     
+    if(intVals[0] > intVals[1] && intVals[0] > intVals[2] && intVals[3] > intVals[4] && intVals[3] > intVals[5]) {
+        [dict setObject:[NSNumber numberWithFloat:1.4] forKey:@"(*1.4) Guessed most prevalent color (red)"];
+    }
+    else if(intVals[1] > intVals[0] && intVals[1] > intVals[2] && intVals[4] > intVals[3] && intVals[4] > intVals[5]) {
+        [dict setObject:[NSNumber numberWithFloat:1.4] forKey:@"(*1.4) Guessed most prevalent color (green)"];
+    }
+    else if(intVals[2] > intVals[0] && intVals[2] > intVals[1] && intVals[5] > intVals[3] && intVals[5] > intVals[4]) {
+        [dict setObject:[NSNumber numberWithFloat:1.4] forKey:@"(*1.4) Guessed most prevalent color (blue)"];
+    }
+    
+    if(intVals[0] < intVals[1] && intVals[0] < intVals[2] && intVals[3] < intVals[4] && intVals[3] < intVals[5]) {
+        [dict setObject:[NSNumber numberWithFloat:1.4] forKey:@"(*1.4) Guessed least prevalent color (red)"];
+    }
+    else if(intVals[1] < intVals[0] && intVals[1] < intVals[2] && intVals[4] < intVals[3] && intVals[4] < intVals[5]) {
+        [dict setObject:[NSNumber numberWithFloat:1.4] forKey:@"(*1.4) Guessed least prevalent color (green)"];
+    }
+    else if(intVals[2] < intVals[0] && intVals[2] < intVals[1] && intVals[5] < intVals[3] && intVals[5] < intVals[4]) {
+        [dict setObject:[NSNumber numberWithFloat:1.4] forKey:@"(*1.4) Guessed least prevalent color (blue)"];
+    }
+    
     return dict;
 }
 
@@ -190,7 +210,6 @@
 - (void) checkLeaderboard {
     int score = ((NSNumber*)self.statisticDictionary[@"finalScore"]).intValue;
     BOOL shouldAdd = [TSGParseReader shouldAddScoreToLeaderboard: score];
-    NSLog(@"%d", shouldAdd);
     if(shouldAdd) {
         [self displayNameAlertWithText:@"Your final score of %d was good enough to make the global leaderboard. If you want to publish your score, enter a name below." forScore:score];
     }
@@ -236,7 +255,7 @@
 
 //Return "Valid" if valid, otherwise, return error message.
 - (NSString*) nameValidity: (NSString*) name {
-    if(name.length < 4) return @"Your name has to be at least 4 characters.";
+    if(name.length < 3) return @"Your name has to be at least 3 characters.";
     if(name.length > 12) return @"Your name can be at most 12 characters.";
     return @"Valid";
 }

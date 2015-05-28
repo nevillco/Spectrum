@@ -75,7 +75,7 @@
     if(!cell) {
         cell = [[TSGLeaderboardCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
-    [cell setStyleForRowIndex: indexPath.row];
+    [cell setStyleForRowIndex: (int)indexPath.row];
     if(self.leaderboardEntries.count <= indexPath.row) {
         [cell makeEmpty];
     }
