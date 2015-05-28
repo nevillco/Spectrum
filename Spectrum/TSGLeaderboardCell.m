@@ -8,6 +8,7 @@
 
 #import "TSGLeaderboardCell.h"
 #import "AppDelegate.h"
+#import "UIColor+TSGColorPresets.h"
 
 @implementation TSGLeaderboardCell
 
@@ -27,11 +28,20 @@
 
 //Style based on row number
 - (void) setStyleForRowIndex: (int) rowIndex {
-    if(rowIndex % 2 == 0) {
-        self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.4f];
+    if(rowIndex == 0) {
+        self.backgroundColor = [UIColor TSGGoldColor];
+    }
+    else if(rowIndex == 1) {
+        self.backgroundColor = [UIColor TSGSilverColor];
+    }
+    else if(rowIndex == 2) {
+        self.backgroundColor = [UIColor TSGBronzeColor];
+    }
+    else if(rowIndex % 2 == 0) {
+        self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.3f];
     }
     else {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.6f];
     }
 }
 

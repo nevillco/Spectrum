@@ -53,6 +53,7 @@
     TSGLeaderboardView* view = (TSGLeaderboardView*) self.view;
     UITableView* table = view.leaderboardTable;
     table.allowsSelection = NO;
+    table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [table registerClass:[TSGLeaderboardCell class] forCellReuseIdentifier:@"LeaderboardCell"];
     [table setDataSource: self];
     [table setDelegate: self];

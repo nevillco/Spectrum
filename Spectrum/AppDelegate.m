@@ -29,8 +29,11 @@
     //Test parse leaderboard
     //NSLog(@"%d", [TSGParseReader minimumScoreForLeaderboard]);
     
-    [AppDelegate resetLocalStats];
-    NSLog(@"%@", [AppDelegate getLocalUserStats]);
+    //Uncomment if changes to structure of text file occur
+    //[AppDelegate resetLocalStats];
+    
+    //Uncomment to check status of text file
+    //NSLog(@"%@", [AppDelegate getLocalUserStats]);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TSGHomeViewController* rootViewController = [[TSGHomeViewController alloc] init];
