@@ -53,9 +53,9 @@
                                         onAttempt: (int) attemptNumber {
     
     int rawScore = [self calculateRawScoreForGuess: guessColor forGoal: goalColor];
-    NSMutableDictionary* multipliers = [self calculateMultipliersForGuess:guessColor forGoal:goalColor onAttempt:attemptNumber];
-    int finalScore = [self calculateFinalScoreForRawScore:rawScore withMultipliers:multipliers];
     NSString* medal = [self calculateMedalForRawScore: rawScore];
+    NSMutableDictionary* multipliers = [self calculateMultipliersForGuess:guessColor forGoal:goalColor onAttempt:attemptNumber withMedal:medal];
+    int finalScore = [self calculateFinalScoreForRawScore:rawScore withMultipliers:multipliers];
     
     return @{@"guessColor":guessColor,
              @"goalColor":goalColor,
@@ -81,14 +81,16 @@
     return 765 - differences[0] - differences[1] - differences[2];
 }
 
+//Calculate medal using constants in App Delegate
 - (NSString*) calculateMedalForRawScore: (int) rawScore {
-    if(rawScore == 765) return @"platinum";
-    if(rawScore > 700) return @"gold";
-    if(rawScore > 600) return @"silver";
-    if(rawScore > 500) return @"bronze";
+    if(rawScore >= [AppDelegate platinumThreshold]) return @"platinum";
+    if(rawScore >= [AppDelegate goldThreshold]) return @"gold";
+    if(rawScore >= [AppDelegate silverThreshold]) return @"silver";
+    if(rawScore >= [AppDelegate bronzeThreshold]) return @"bronze";
     return @"no medal";
 }
 
+//Multiply raw score by each multiplier to calculate final score
 - (int) calculateFinalScoreForRawScore: (int) rawScore withMultipliers: (NSMutableDictionary*) multipliers {
     float finalScore = rawScore;
     for(id key in multipliers) {
@@ -98,15 +100,16 @@
     return finalScore;
 }
 
+//Determine which multipliers to add to dictionary (large boolean equations!)
 - (NSMutableDictionary*) calculateMultipliersForGuess: (UIColor*) guessColor
                                               forGoal: (UIColor*) goalColor
-                                            onAttempt: (int) attemptNumber {
+                                            onAttempt: (int) attemptNumber
+                                            withMedal: (NSString*) medal {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithCapacity:2];
     
     if(attemptNumber == 1) [dict setObject:[NSNumber numberWithFloat: 1.2] forKey:@"(*1.2) First attempt"];
     else if(attemptNumber == 2) [dict setObject:[NSNumber numberWithFloat:1.1] forKey:@"(*1.1) Second attempt"];
     else [dict setObject:[NSNumber numberWithFloat:1.0] forKey:@"(*1.0) Last attempt"];
-    
     
     CGFloat floatVals[6];
     [guessColor getRed:&floatVals[0] green:&floatVals[1] blue:&floatVals[2] alpha:nil];
@@ -190,6 +193,17 @@
     }
     else if(intVals[2] < intVals[0] && intVals[2] < intVals[1] && intVals[5] < intVals[3] && intVals[5] < intVals[4]) {
         [dict setObject:[NSNumber numberWithFloat:1.4] forKey:@"(*1.4) Guessed least prevalent color (blue)"];
+    }
+    
+    //No multiplier for platinum medal - one given for perfect raw score already
+    if([medal isEqualToString: @"gold"]) {
+        [dict setObject:[NSNumber numberWithFloat: 1.6f] forKeyedSubscript:@"(*1.6) Gold raw score medal"];
+    }
+    else if([medal isEqualToString: @"silver"]) {
+        [dict setObject:[NSNumber numberWithFloat: 1.4f] forKeyedSubscript:@"(*1.4) Silver raw score medal"];
+    }
+    else if([medal isEqualToString: @"bronze"]) {
+        [dict setObject:[NSNumber numberWithFloat: 1.2f] forKeyedSubscript:@"(*1.2) Bronze raw score medal"];
     }
     
     return dict;

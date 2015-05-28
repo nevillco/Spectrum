@@ -188,14 +188,24 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+//Used throughout views as global font
 + (NSString*) fontName { return @"TrebuchetMS"; }
 + (NSString*) boldFontName { return [NSString stringWithFormat:@"%@-Bold", [self fontName]]; }
+
+//Used in TSGTouchableView
 + (int) maxAttemptsPerColor { return 3; }
+
 //Generates a color with random RGB values (no transparency)
 + (UIColor*) randomColor
 {
     srand48(time(0));
     return [UIColor colorWithRed:drand48() green:drand48() blue:drand48() alpha:1];
 }
+
+//Minimum scores required for each medal type
++ (int) platinumThreshold { return 765; }
++ (int) goldThreshold { return 700; }
++ (int) silverThreshold { return 650; }
++ (int) bronzeThreshold { return 600; }
 
 @end

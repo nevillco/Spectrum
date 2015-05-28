@@ -20,5 +20,10 @@
 + (NSDictionary*) getLocalUserStats;
 + (void) updateLocalStatsWithDictionary: (NSDictionary*) statistics;
 
++ (int) platinumThreshold;
++ (int) goldThreshold;
++ (int) silverThreshold;
++ (int) bronzeThreshold;
+
 @end
 

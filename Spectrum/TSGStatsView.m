@@ -102,7 +102,7 @@
     [self addSubview: self.platinumMedalsLabel];
     
     //self.platinumDescriptionLabel
-    self.platinumDescriptionLabel = [[CNLabel alloc] initWithText:@"requires perfect 765 raw score"];
+    self.platinumDescriptionLabel = [[CNLabel alloc] initWithText:[NSString stringWithFormat:@"requires perfect %d raw score", [AppDelegate platinumThreshold]]];
     self.platinumDescriptionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:13.0f];
     self.platinumDescriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.platinumDescriptionLabel];
@@ -119,7 +119,7 @@
     [self addSubview: self.goldMedalsLabel];
     
     //self.goldDescriptionLabel
-    self.goldDescriptionLabel = [[CNLabel alloc] initWithText:@"requires over 700 raw score"];
+    self.goldDescriptionLabel = [[CNLabel alloc] initWithText:[NSString stringWithFormat:@"requires %d raw score", [AppDelegate goldThreshold]]];
     self.goldDescriptionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:13.0f];
     self.goldDescriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.goldDescriptionLabel];
@@ -136,7 +136,7 @@
     [self addSubview: self.silverMedalsLabel];
     
     //self.silverDescriptionLabel
-    self.silverDescriptionLabel = [[CNLabel alloc] initWithText:@"requires over 600 raw score"];
+    self.silverDescriptionLabel = [[CNLabel alloc] initWithText:[NSString stringWithFormat:@"requires %d raw score", [AppDelegate silverThreshold]]];
     self.silverDescriptionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:13.0f];
     self.silverDescriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.silverDescriptionLabel];
@@ -153,7 +153,7 @@
     [self addSubview: self.bronzeMedalsLabel];
     
     //self.silverDescriptionLabel
-    self.bronzeDescriptionLabel = [[CNLabel alloc] initWithText:@"requires over 500 raw score"];
+    self.bronzeDescriptionLabel = [[CNLabel alloc] initWithText:[NSString stringWithFormat:@"requires %d raw score", [AppDelegate bronzeThreshold]]];
     self.bronzeDescriptionLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:13.0f];
     self.bronzeDescriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview: self.bronzeDescriptionLabel];
