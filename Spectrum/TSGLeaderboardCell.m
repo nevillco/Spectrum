@@ -42,6 +42,16 @@
     }
 }
 
+- (void) makeEmpty {
+    self.playerNameLabel.text = @"";
+    self.scoreLabel.text = @"";
+}
+
+- (void) updateWithEntry: (PFObject*) entry {
+    self.playerNameLabel.text = entry[@"playerName"];
+    self.scoreLabel.text = [entry[@"score"] stringValue];
+}
+
 - (void) makeControls {
     self.playerNameLabel = [[CNLabel alloc] initWithText:@"Player Name"];
     self.playerNameLabel.font = [UIFont fontWithName:[AppDelegate fontName] size:14.0f];

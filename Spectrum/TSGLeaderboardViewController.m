@@ -25,6 +25,7 @@
 - (id) init {
     self = [super init];
     if(self) {
+        self.leaderboardEntries = [TSGParseReader leaderboardEntries];
         [self addActions];
         [self configureTable];
     }
@@ -67,6 +68,13 @@
         cell = [[TSGLeaderboardCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     [cell setStyleForRowIndex: indexPath.row];
+    if(self.leaderboardEntries.count <= indexPath.row) {
+        [cell makeEmpty];
+    }
+    else {
+        [cell updateWithEntry: (PFObject*)(self.leaderboardEntries[indexPath.row])];
+    }
+    
     return cell;
 }
 

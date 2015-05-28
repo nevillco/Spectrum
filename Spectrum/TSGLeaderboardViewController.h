@@ -10,4 +10,6 @@
 
 @interface TSGLeaderboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property NSArray* leaderboardEntries;
+
 @end
