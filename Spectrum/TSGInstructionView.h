@@ -26,4 +26,7 @@
 //Button to dismiss VC and return
 @property UIButton* goBackButton;
 
+//Button to send email
+@property UIButton* emailButton;
+
 @end

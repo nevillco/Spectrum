@@ -8,6 +8,7 @@
 
 #import "TSGInstructionViewController.h"
 #import "TSGInstructionView.h"
+#import <MessageUI/MessageUI.h>
 
 @interface TSGInstructionViewController ()
 
@@ -31,9 +32,30 @@
 - (void) addActions {
     TSGInstructionView* view = (TSGInstructionView*) self.view;
     [view.goBackButton addTarget:self action:@selector(goBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [view.emailButton addTarget:self action:@selector(emailButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) goBackButtonPressed: (id) sender {
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+}
+
+- (void) emailButtonPressed: (id) sender {
+    if([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
+        mailCont.mailComposeDelegate = self;
+        
+        [mailCont setSubject:@"The Spectrum Game"];
+        [mailCont setToRecipients:[NSArray arrayWithObject:@"nevillco@bc.edu"]];
+        [mailCont setMessageBody:@"Let me know what you think!" isHTML:NO];
+        
+        [self presentViewController:mailCont animated:TRUE completion:nil];
+    }
+    
+    
+}
+
+//MailComposer delegate method
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 

@@ -68,9 +68,18 @@
     [self.goBackButton setTitle:@"Got it!" forState:UIControlStateNormal];
     [self.goBackButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.goBackButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self.goBackButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:24.0f]];
+    [self.goBackButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:20.0f]];
     self.goBackButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:self.goBackButton];
+    
+    //self.emailButton
+    self.emailButton = [[UIButton alloc] init];
+    [self.emailButton setTitle:@"Questions, comments or suggestions? Email me." forState:UIControlStateNormal];
+    [self.emailButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.emailButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self.emailButton.titleLabel setFont: [UIFont fontWithName:[AppDelegate fontName] size:14.0f]];
+    self.emailButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:self.emailButton];
 }
 
 - (void) makeControlConstraints {
@@ -220,7 +229,22 @@
                                                            toItem:self.bottomInstructions
                                                         attribute:NSLayoutAttributeBottom
                                                        multiplier:1.0f
-                                                         constant:8.0f]
+                                                         constant:4.0f],
+                           //self.emailButton
+                           [NSLayoutConstraint constraintWithItem:self.emailButton
+                                                        attribute:NSLayoutAttributeCenterX
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self
+                                                        attribute:NSLayoutAttributeCenterX
+                                                       multiplier:1.0f
+                                                         constant:0.0f],
+                           [NSLayoutConstraint constraintWithItem:self.emailButton
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.goBackButton
+                                                        attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0f
+                                                         constant:0.0f]
                            ]];
     
 }
