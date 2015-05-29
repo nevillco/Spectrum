@@ -41,8 +41,8 @@
     NSArray* values = [query findObjects];
     PFObject* last = [values lastObject];
     int minimum = ((NSNumber*)last[@"score"]).intValue;
-    NSLog(@"Scores: %lu minimum: %d shouldAdd: %d",
-          (unsigned long)values.count, minimum, (score > minimum) || (values.count < 25));
+    //NSLog(@"Scores: %lu minimum: %d shouldAdd: %d",
+          //(unsigned long)values.count, minimum, (score > minimum) || (values.count < 25));
     return (score > minimum) || (values.count < 25);
 }
 
